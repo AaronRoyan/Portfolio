@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 body {
     min-height: 100vh;
     margin: 0;
@@ -15,9 +17,51 @@ ul {
     text-align: center;
     font-size: 1.8em;
     text-decoration: none;
-    color: black;
-}
+    a{
+        color: #720126;
 
+    }
+}
+         .aboutwork{  
+             margin-left: -5em;
+            li { 
+                display: table-cell; 
+                position: relative; 
+                padding: 15px 0 15px -1em;
+                justify-content: space-between;
+            }
+            a {
+                color: #fff;
+                text-transform: uppercase;
+                text-decoration: none;
+                letter-spacing: 0.15em;
+                
+                display: inline-block;
+                padding: 15px 20px;
+                position: relative;
+            }
+            a:after {    
+                background: none repeat scroll 0 0 transparent;
+                bottom: 0;
+                content: "";
+                display: block;
+                height: 2px;
+                left: 50%;
+                position: absolute;
+                background: #fff;
+                transition: width 0.3s ease 0s, left 0.3s ease 0s;
+                width: 0;
+            }
+            a:hover:after { 
+                width: 100%; 
+                left: 0; 
+            }
+            @media screen and (max-height: 300px) {
+                ul {
+                    margin-top: 40px;
+                }
+            }
+        }
 .right_img {
     display: none;
 }
@@ -82,8 +126,12 @@ img {
     cursor: pointer;
 }
 
-.linkedln-logo:hover {
+.social-header {
+    ul{
     cursor: pointer;
+    float: right;
+    padding: 0 0 0 1em;
+    }
 }
 
 .github-sign:hover {
@@ -129,9 +177,6 @@ header {
     display: none;
 }
 
-.right {
-    display: none;
-}
 
 .hero {
     background: #80002A;
@@ -255,98 +300,61 @@ section {
 }
 
 @media only screen and (min-width:800px) {
-    .featured {
-        margin: 8% 0 8% -2%;
+    .featured .portfolio{
+        p{
+            text-align: left;
+        }
+        img{
+            place-content: right;
+        }
+
+    }
+    .featured, .portfolio-container{
         display: grid;
-        text-align: left;
         grid-template-columns: 48% auto;
-        .aboutMe {
-            font-size: 1.7em;
-        }
-        .left {
-            padding-bottom: 2em;
-            margin-bottom: 10%;
-        }
-        img {
-            padding: 2em 0 0 5em;
-            border-radius: 10px 40px;
-        }
     }
-    .inner-left {
-        text-align: left;
-    }
-    .inner-right {
-        text-align: right;
-    }
-    .selected {
-        text-align: center;
-    }
-    .portfolio-container {
+    .left, .portfolio-left{
         display: grid;
-        grid-template-columns: 40% auto;
-        .project-imagesb,
-        .project-imagesc,
-        .project-images {
-            width: 350px;
-        }
+        place-content: left;
     }
-    .portfolio-left {
-        place-content: center;
-        margin: 0 17% 0 0;
+    .right{
+        margin-left:2em;
+        margin-top:1em;
     }
-    .right,
-    .portfolio-right {
-        margin-left: 2em;
-        margin-top: 1em;
-    }
-    .right_img {
-        display: unset;
-        width: 600px;
-        float: left;
-    }
-    .skills {
+    .skills{
         margin-top: -5em;
         margin-bottom: -7em;
         padding-top: 7em;
     }
-    .skills-container ul {
+    .skills-container ul{
         display: grid;
-        grid-template-columns: repeat(3, auto);
+        grid-template-columns: repeat(3,auto);
         grid-gap: 1em;
+
     }
-    .portfolio {
+    .portfolio{
         padding-top: 7em;
-        display: grid;
-        .grid-left {
-            grid-area: left;
-        }
-        .grid-right {
-            grid-area: right;
-        }
     }
-    .portfolio-container img {
-        margin-left: 10em;
+    .portfolio-container img{
+        margin-left: 2em;
     }
-    project-imagesb {
-        width: 100px;
-    }
-    .left .featured {
-        padding: 0 0 2em;
-        display: grid;
-        grid-template-columns: 66% auto;
-        text-align: center;
-    }
-    .footer-ele2 {
+    .footer-ele2{
         display: none;
     }
-    .footer-ele1 {
+    .footer-ele1{
         display: unset;
         width: 100%;
-        margin-right: -10%;
     }
 }
 
 @media only screen and (min-width: 1050px) {
+    .social-header {
+        ul{
+        cursor: pointer;
+        float: right;
+        padding: 0 0 0 1em;
+        }
+    }
     .featured {
         display: grid;
         grid-template-columns: 50% 40%;

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
 body {
   min-height: 100vh;
   margin: 0;
@@ -15,7 +16,58 @@ ul {
   text-align: center;
   font-size: 1.8em;
   text-decoration: none;
-  color: black;
+}
+
+.muchMore a {
+  color: #720126;
+}
+
+.aboutwork {
+  margin-left: -5em;
+}
+
+.aboutwork li {
+  display: table-cell;
+  position: relative;
+  padding: 15px 0 15px -1em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.aboutwork a {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  display: inline-block;
+  padding: 15px 20px;
+  position: relative;
+}
+
+.aboutwork a:after {
+  background: none repeat scroll 0 0 transparent;
+  bottom: 0;
+  content: "";
+  display: block;
+  height: 2px;
+  left: 50%;
+  position: absolute;
+  background: #fff;
+  -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  transition: width 0.3s ease 0s, left 0.3s ease 0s;
+  width: 0;
+}
+
+.aboutwork a:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+@media screen and (max-height: 300px) {
+  .aboutwork ul {
+    margin-top: 40px;
+  }
 }
 
 .right_img {
@@ -87,8 +139,10 @@ img {
   cursor: pointer;
 }
 
-.linkedln-logo:hover {
+.social-header ul {
   cursor: pointer;
+  float: right;
+  padding: 0 0 0 1em;
 }
 
 .github-sign:hover {
@@ -140,10 +194,6 @@ header ul a {
 
 .social-header,
 .hero-design {
-  display: none;
-}
-
-.right {
   display: none;
 }
 
@@ -281,58 +331,26 @@ section {
 }
 
 @media only screen and (min-width: 800px) {
-  .featured {
-    margin: 8% 0 8% -2%;
+  .featured .portfolio p {
+    text-align: left;
+  }
+  .featured .portfolio img {
+    place-content: right;
+  }
+  .featured, .portfolio-container {
     display: -ms-grid;
     display: grid;
-    text-align: left;
     -ms-grid-columns: 48% auto;
         grid-template-columns: 48% auto;
   }
-  .featured .aboutMe {
-    font-size: 1.7em;
-  }
-  .featured .left {
-    padding-bottom: 2em;
-    margin-bottom: 10%;
-  }
-  .featured img {
-    padding: 2em 0 0 5em;
-    border-radius: 10px 40px;
-  }
-  .inner-left {
-    text-align: left;
-  }
-  .inner-right {
-    text-align: right;
-  }
-  .selected {
-    text-align: center;
-  }
-  .portfolio-container {
+  .left, .portfolio-left {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 40% auto;
-        grid-template-columns: 40% auto;
+    place-content: left;
   }
-  .portfolio-container .project-imagesb,
-  .portfolio-container .project-imagesc,
-  .portfolio-container .project-images {
-    width: 350px;
-  }
-  .portfolio-left {
-    place-content: center;
-    margin: 0 17% 0 0;
-  }
-  .right,
-  .portfolio-right {
+  .right {
     margin-left: 2em;
     margin-top: 1em;
-  }
-  .right_img {
-    display: unset;
-    width: 600px;
-    float: left;
   }
   .skills {
     margin-top: -5em;
@@ -348,28 +366,9 @@ section {
   }
   .portfolio {
     padding-top: 7em;
-    display: -ms-grid;
-    display: grid;
-  }
-  .portfolio .grid-left {
-    grid-area: left;
-  }
-  .portfolio .grid-right {
-    grid-area: right;
   }
   .portfolio-container img {
-    margin-left: 10em;
-  }
-  project-imagesb {
-    width: 100px;
-  }
-  .left .featured {
-    padding: 0 0 2em;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 66% auto;
-        grid-template-columns: 66% auto;
-    text-align: center;
+    margin-left: 2em;
   }
   .footer-ele2 {
     display: none;
@@ -377,11 +376,15 @@ section {
   .footer-ele1 {
     display: unset;
     width: 100%;
-    margin-right: -10%;
   }
 }
 
 @media only screen and (min-width: 1050px) {
+  .social-header ul {
+    cursor: pointer;
+    float: right;
+    padding: 0 0 0 1em;
+  }
   .featured {
     display: -ms-grid;
     display: grid;
