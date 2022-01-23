@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1378" height="831" viewBox="0 0 1378 831">
+  <ellipse id="Ellipse_3" data-name="Ellipse 3" cx="246" cy="243" rx="246" ry="243" fill="#3c3a43" opacity="0.17"/>
+  <text id="About_Me" data-name="About Me" transform="translate(353 359)" fill="#80002a" font-size="58" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">About Me</tspan></text>
+  <text id="Hey_I_am_a_Aaron_a_twenty-one_years_old_programmer_digital_artist_and_much_more._Currently_based_in_India" data-name="Hey! I am a Aaron, a twenty-one years old programmer, digital artist and much more. Currently based in India" transform="translate(322 457)" fill="#040404" font-size="64" font-family="Playfair Display" font-weight="600" font-style="italic" letter-spacing="0.034em"><tspan x="0" y="69">Hey! I am a Aaron, a </tspan><tspan y="69" font-weight="400" font-style="normal">twenty-one </tspan><tspan x="0" y="154" font-weight="400" font-style="normal">years old </tspan><tspan y="154">programmer, digital </tspan><tspan x="0" y="239">artist and much more. Currently </tspan><tspan x="0" y="324">based in India</tspan></text>
+  <rect id="Rectangle_19" data-name="Rectangle 19" width="168" height="16" transform="translate(592 785)" fill="#ab0239"/>
+</svg>
+
+<svg  width="745" height="745" viewBox="0 0 745 745">
+  <defs>
+    <pattern id="pattern" preserveAspectRatio="none" width="100%" height="100%" viewBox="0 0 900 900">
+      <image width="900" height="900" href="images/space.jpg"/></pattern>
+  </defs>
+  <rect id="Logo_Space_Invaders" data-name="Logo Space Invaders" width="745" height="745" rx="372.5" fill="url(#pattern)"/>
+</svg>

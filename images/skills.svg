@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1971" height="804" viewBox="0 0 1971 804">
+  <rect id="Rectangle_17" data-name="Rectangle 17" width="1971" height="773" fill="#d86087"/>
+  <rect id="Rectangle_18" data-name="Rectangle 18" width="551" height="648" rx="28" transform="translate(96 156)" fill="#fff"/>
+  <rect id="Rectangle_18-2" data-name="Rectangle 18" width="551" height="648" rx="41" transform="translate(705 156)" fill="#fff"/>
+  <rect id="Rectangle_18-3" data-name="Rectangle 18" width="551" height="648" rx="47" transform="translate(1314 156)" fill="#fff"/>
+  <text id="Programmer_" data-name="Programmer " transform="translate(705 340)" fill="#040404" font-size="35" font-family="Playfair Display" font-weight="700"><tspan x="-104.51" y="38">Programmer </tspan></text>
+  <text id="Digital_Artist" data-name="Digital Artist" transform="translate(1314 340)" fill="#040404" font-size="35" font-family="Playfair Display" font-weight="700"><tspan x="-104.107" y="38">Digital Artist</tspan></text>
+  <text id="Game_Developer" data-name="Game Developer" transform="translate(96 340)" fill="#040404" font-size="35" font-family="Playfair Display" font-weight="700"><tspan x="-132.842" y="38">Game Developer</tspan></text>
+  <image id="coding" width="64" height="64" transform="translate(954 229)" href="coding.png"/>
+  <image id="graphic-designer" width="64" height="64" transform="translate(1568 229)" href="graphic-designer.png"/>
+  <image id="game-development" width="64" height="64" href="game-development.png"/>
+
+  <text id="_-_Unity_-_Python_-_C_" data-name="- Unity
+
+- Python
+
+- C++  
+" transform="translate(301 434)" fill="#040404" font-size="37" font-family="Playfair Display"><tspan x="0" y="40">- Unity</tspan><tspan x="0" y="89"></tspan><tspan x="0" y="138">- Python</tspan><tspan x="0" y="187"></tspan><tspan x="0" y="236" xml:space="preserve">- C++  </tspan><tspan x="0" y="285"></tspan></text>
+  <text id="_-_C_-_C_-_C_" data-name="- C
+
+- C#
+
+- C++  
+" transform="translate(763 450)" fill="#040404" font-size="37" font-family="Playfair Display"><tspan x="0" y="40">- C</tspan><tspan x="0" y="89"></tspan><tspan x="0" y="138">- C#</tspan><tspan x="0" y="187"></tspan><tspan x="0" y="236" xml:space="preserve">- C++  </tspan><tspan x="0" y="285"></tspan></text>
+  <text id="_-_Java_-_Python_-_PHP_" data-name="- Java
+
+- Python
+
+- PHP
+" transform="translate(904 450)" fill="#040404" font-size="37" font-family="Playfair Display"><tspan x="0" y="40">- Java</tspan><tspan x="0" y="89"></tspan><tspan x="0" y="138">- Python</tspan><tspan x="0" y="187"></tspan><tspan x="0" y="236">- PHP</tspan><tspan x="0" y="285"></tspan></text>
+  <text id="_-_Java_-_JS_etc._" data-name="- Java
+
+- JS
+
+  etc.
+" transform="translate(1093 450)" fill="#040404" font-size="37" font-family="Playfair Display"><tspan x="0" y="40">- Java</tspan><tspan x="0" y="89"></tspan><tspan x="0" y="138">- JS</tspan><tspan x="0" y="187"></tspan><tspan x="0" y="236" xml:space="preserve">  etc.</tspan><tspan x="0" y="285"></tspan></text>
+  <text id="_-_Adobe_Photoshop_-_Adobe_Xd_-_Adobe_Illustrator_" data-name="- Adobe Photoshop
+
+- Adobe Xd
+
+- Adobe Illustrator
+" transform="translate(1457 450)" fill="#040404" font-size="37" font-family="Playfair Display"><tspan x="0" y="40">- Adobe Photoshop</tspan><tspan x="0" y="89"></tspan><tspan x="0" y="138">- Adobe Xd</tspan><tspan x="0" y="187"></tspan><tspan x="0" y="236">- Adobe Illustrator</tspan><tspan x="0" y="285"></tspan></text>
+</svg>
