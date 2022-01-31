@@ -6,54 +6,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
+    <script href="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Aaron Portfolio</title>
 </head>
 
 <body>
-
-    <div class="nav-container">
-        <header>
-            <a href="./index.html" class="logo">
-                <svg xmlns="http://www.w3.org/2000/svg" width="226" height="55" viewBox="0 0 226 55">
-                <g id="Component_1_1" data-name="Component 1 – 1" transform="translate(0 7)">
-                  <text id="Aaron_Royan" data-name="Aaron Royan" transform="translate(1 39)" font-size="36" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
+    <div class="overall-container">
+        <div class="nav-container">
+            <header>
+                <a href="./index.html" class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="226" height="55" viewBox="0 0 226 55">
+                <g  id="Component_1_1" data-name="Component 1 – 1" transform="translate(0 7)">
+                  <text class="black" id="Aaron_Royan" data-name="Aaron Royan" transform="translate(1 39)" font-size="36" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
                 </g>
-                <g id="Component_1_2" data-name="Component 1 – 2" transform="translate(11)">
-                  <text id="Aaron_Royan-2" data-name="Aaron Royan" transform="translate(1 39)" fill="#fff" font-size="36" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
+                <g class="white" id="Component_1_2" data-name="Component 1 – 2" transform="translate(11)">
+                  <text class="white" id="Aaron_Royan-2" data-name="Aaron Royan" transform="translate(1 39)" fill="#fff" font-size="36" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
                 </g>
               </svg>
-            </a>
-            <nav class="aboutwork">
-                <ul>
-                    <li class="nav-stagger"><a href="#" target="_blank">About</a></li>
-                    <li class="nav-stagger"><a href="#" target="_blank">My Work</a></li>
-                    <li class="nav-stagger"><a href="#" target="_blank">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="social-header">
-            <ul>
-                <li>
-                    <a href="https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/" target="_blank"><img class="social-stagger" src="./images/linkedin-logo.png" alt="Linkedln"></a>
-                </li>
-                <li>
-                    <a href="https://github.com/AaronRoyan" target="_blank"><img class="social-stagger" src="./images/github-sign.png" alt="GitHub"></a>
-                </li>
-                <li>
-                    <a href="https://www.instagram.com/adjroyan/" target="_blank"><img class="social-stagger" src="./images/instagram.png" alt="instagram"></a>
-                </li>
-            </ul>
-        </div>
-    </div>
+                </a>
+                <nav class="aboutwork">
+                    <ul style="z-index: 1;">
 
-    <div class="hero">
-        <div class="content">
-            <h1 class="stagger1">Student by day, Programmer by Night !</h1>
-            <div class="meet">
-                <span class="stagger1">👇</span>
-                <p class="stagger1">Meet Aaron Royan</p>
+                        <li class="nav-stagger"><a href="./about.html">About</a></li>
+
+
+                        <li class="nav-stagger"> <a href="./work.html">My Work</a></li>
+
+
+                        <li class="nav-stagger"><a href="./contact.html">Contact</a></li>
+
+                    </ul>
+                </nav>
+                <!--    Hamburger Menu       -->
+                <div id="menuToggle">
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                    <ul id="menu">
+                        <a href="#">
+                            <li>About</li>
+                        </a>
+                        <a href="#">
+                            <li>My Work</li>
+                        </a>
+
+                        <a href="#">
+                            <li>Contact</li>
+                        </a>
+
+                    </ul>
+                </div>
+            </header>
+
+            <div class="social-header">
+                <ul style="z-index: 1;">
+                    <li>
+                        <a href="https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/"><img class="social-stagger" src="./images/linkedin-logo.png" alt="Linkedln"></a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/AaronRoyan"><img class="social-stagger" src="./images/github-sign.png" alt="GitHub"></a>
+                    </li>
+                    <li>
+                        <a href="#"><img class="social-stagger" src="./images/instagram.png" alt="instagram"></a>
+                    </li>
+                </ul>
             </div>
-            <svg class="scroll stagger1" width="51" height="92" viewBox="0 0 51 92">
+        </div>
+
+        <div class="hero">
+            <div class="content">
+                <h1 class="stagger1"><span class="element"></span></h1>
+                <div class="meet">
+                    <span class="stagger1 emo">👇</span>
+                    <p class="stagger1">Meet Aaron Royan</p>
+                </div>
+                <svg class="scroll stagger1" width="51" height="92" viewBox="0 0 51 92">
                 <g id="Rectangle_3" data-name="Rectangle 3" fill="none" stroke="#fff" stroke-width="6">
                   <rect width="51" height="92" rx="25.5" stroke="none"/>
                   <rect x="3" y="3" width="45" height="86" rx="22.5" fill="none"/>
@@ -62,8 +95,8 @@
                   <circle class="circle"cx="14.5" cy="14.5" r="14.5" stroke="none"/>
                 </g>
               </svg>
-        </div>
-        <svg class="hero-design" width="965" height="752.454" viewBox="0 0 965 752.454">
+            </div>
+            <svg class="hero-design" width="965" height="752.454" viewBox="0 0 965 752.454">
             <defs>
               <filter id="Line_3" x="328.166" y="44.548" width="338.669" height="336.743" filterUnits="userSpaceOnUse">
                 <feOffset dy="3" input="SourceAlpha"/>
@@ -77,7 +110,7 @@
             <rect class="hero-anim" id="Rectangle_5" data-name="Rectangle 5" width="213" height="213" rx="31" transform="translate(213 223)" fill="#fff"/>
             <rect class="hero-anim" id="Rectangle_8" data-name="Rectangle 8" width="213" height="213" rx="31" transform="translate(0 456)" fill="#ab0239"/>
             <rect class="hero-anim" id="Rectangle_9" data-name="Rectangle 9" width="213" height="213" rx="31" transform="translate(76 335)" fill="#910130"/>
-            <path class="hero-anim" id="Path_3" data-name="Path 3" d="M1817.926,1011.184l-50.488,50.488h50.488Z" transform="translate(2239.729 1762.355) rotate(180)" fill="#80002a"/>
+            <path class="hero-anim Path_3" data-name="Path 3" d="M1817.926,1011.184l-50.488,50.488h50.488Z" transform="translate(2239.729 1762.355) rotate(180)" fill="#80002a"/>
             <rect class="hero-anim" id="Rectangle_15" data-name="Rectangle 15" width="140" height="132" rx="66" transform="translate(532 390)" fill="#80002a"/>
             <rect class="hero-anim" id="Rectangle_16" data-name="Rectangle 16" width="140" height="132" transform="translate(532 135)" fill="#80002a"/>
             <rect class="hero-anim" id="Rectangle_4" data-name="Rectangle 4" width="213" height="213" rx="31" transform="translate(416)" fill="#80002a"/>
@@ -92,116 +125,124 @@
             <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Line_3)" style="mix-blend-mode: color-burn;isolation: isolate">
               <line id="Line_3-2" data-name="Line 3" x1="20" y1="18" transform="translate(487.5 200.92)" fill="none" stroke="#fff" stroke-width="1"/>
             </g>
-            <path id="Path_1" data-name="Path 1" d="M1824,499v89.86l85.59,1.2.376-5.032-.485-6.959-.324-5.826-1.457-6.312-2.1-7.606-3.56-9.71-3.075-6.8-3.075-4.693L1892,531.949l-4.046-4.693-3.56-3.722-5.017-4.208-5.664-4.855-7.388-4.325-8.7-3.978-8.216-3.116-10.766-2.72Z" transform="translate(-1403 -373.266)" fill="#fff"/>
-            <path id="Path_2" data-name="Path 2" d="M50.908,0,0,49.891H50.908Z" transform="matrix(-0.017, -1, 1, -0.017, 372.809, 752.454)" fill="#fff"/>
+            <path class="Path_1" d="M1824,499v89.86l85.59,1.2.376-5.032-.485-6.959-.324-5.826-1.457-6.312-2.1-7.606-3.56-9.71-3.075-6.8-3.075-4.693L1892,531.949l-4.046-4.693-3.56-3.722-5.017-4.208-5.664-4.855-7.388-4.325-8.7-3.978-8.216-3.116-10.766-2.72Z" transform="translate(-1403 -373.266)" fill="#fff"/>
+            <path class="Path_2" d="M50.908,0,0,49.891H50.908Z" transform="matrix(-0.017, -1, 1, -0.017, 372.809, 752.454)" fill="#fff"/>
           </svg>
-    </div>
-
-    <section class="featured">
-        <div class="left">
-            <div class="inner transition2">
-                <p class="subtitle aboutMe">About Me</p>
-                <p class="featured-title yoyo1">A little Something about myself</p>
-                <p class="featured-desc yoyo"><b><i>Hey! I am Aaron, a</i></b> twenty-one year old <b><i>programmer, digital artist and much more. Currently based in <b class="india">India</b></i>
-                    </b>
-                </p>
-            </div>
         </div>
-        <img class="right-img transition2 " src="images/full.png " alt="About Me ">
 
-    </section>
-
-    <section class="skills ">
-        <div class="skills-container ">
-            <ul>
-                <li class="transition2 ">
-                    <div class="icon-container one ">
-                        <img src="images/game-development.png " alt="Game Controller ">
-                    </div>
-                    <p class="skills-title ">Game Developer</p>
-                    <p class="featured-desc skill-desc ">- Unity <br><br>- Python <br><br>- C++</p>
-                </li>
-                <li class="transition2 ">
-                    <div class="icon-container two ">
-                        <img src="images/coding.png " alt="Terminal ">
-                    </div>
-                    <p class="skills-title ">Programmer</p>
-                    <p class="featured-desc skill-desc ">- C -Java -html/scss<br><br>-C#-Python -JS<br><br>-C++ -PHP etc.</p>
-                </li>
-                <li class="transition2 ">
-                    <div class="icon-container three ">
-                        <img src="images/graphic-designer.png " alt="Digital Artist ">
-                    </div>
-                    <p class="skills-title ">Digital Artist</p>
-                    <p class="featured-desc skill-desc ">- Adobe Photoshop <br><br>- Adobe Xd <br><br>- Adobe Illustrator</p>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="portfolio ">
-        <p class="selected "><b>SELECTED</b> <br><i>WORKS</i>
-        </p> <br>
-        <div class="portfolio-container transition3 ">
-            <div class="portfolio-left ">
-                <div class="inner inner-left grid-left">
-                    <p class="subtitle "><b>Mars Invaders</b></p> <br>
-                    <p class="featured-desc "><i>Created a game in python using the 'pygame' module. This game was inspired by the 1978 Space Invaders Arcade Game</i></p> <br>
+        <section class="featured">
+            <div class="left">
+                <div class="inner transition2">
+                    <p class="subtitle aboutMe">About Me</p>
+                    <p class="featured-title yoyo1">A little Something about myself</p>
+                    <p class="featured-desc yoyo"><b><i>Hey! I am Aaron, a</i></b> twenty-one year old <b><i>programmer, digital artist and much more. Currently based in <b class="india">India</b></i>
+                        </b>
+                    </p>
                 </div>
             </div>
-            <a href="https://github.com/AaronRoyan/Space-Invaders" target="_blank">
-                <img class="project-images right" src="/images/space1.png" alt="Mars Invaders">
-            </a>
-        </div> <br>
-        <!-- Ermutigen -->
-        <div class="portfolio-container transition3 ">
-            <div class="portfolio-left  ">
-                <div class="inner inner-left grid-left">
-                    <p class="subtitle "><b>Ermutigen</b></p> <br>
-                    <p class="featured-desc "><i>Ermutigen is a discord bot that encourages users and says/types some supportive and encouraging messages. Ermutigen is the German word for encourage.</i></p> <br>
+            <div class="photo-box">
+                <ul>
+                    <li><img class="right_img transition2 " src="images/left.png " alt="About Me "></li>
+                    <li><img class="right_img transition2 " src="images/ncenter.png " alt="About Me "></li>
+                    <li><img class="right_img transition2 " src="images/right.png " alt="About Me "></li>
+
+                </ul>
+            </div>
+            <div class="ye">
+                <img class="right_img transition2 " src="images/full.png " alt="About Me ">
+
+            </div>
+        </section>
+
+        <section class="skills ">
+            <div class="skills-container ">
+                <ul>
+                    <li class="transition2 ">
+                        <div class="icon-container one ">
+                            <img src="images/game-development.png " alt="Game Controller ">
+                        </div>
+                        <p class="skills-title ">Game Developer</p>
+                        <p class="featured-desc skill-desc ">- Unity <br><br>- Python <br><br>- C++</p>
+                    </li>
+                    <li class="transition2 ">
+                        <div class="icon-container two ">
+                            <img src="images/coding.png " alt="Terminal ">
+                        </div>
+                        <p class="skills-title ">Programmer</p>
+                        <p class="featured-desc skill-desc ">- C -Java -html/scss<br><br>-C#-Python -JS<br><br>-C++ -PHP etc.</p>
+                    </li>
+                    <li class="transition2 ">
+                        <div class="icon-container three ">
+                            <img src="images/graphic-designer.png " alt="Digital Artist ">
+                        </div>
+                        <p class="skills-title ">Digital Artist</p>
+                        <p class="featured-desc skill-desc ">- Adobe Photoshop <br><br>- Adobe Xd <br><br>- Adobe Illustrator</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="portfolio ">
+            <p class="selected "><b>SELECTED</b> <br><i>WORKS</i> </p> <br>
+            <div class="portfolio-container transition3 ">
+                <div class="portfolio-left ">
+                    <div class="inner inner-left grid-left">
+                        <p class="subtitle prja"><b>Mars Invaders</b></p> <br>
+                        <p class="featured-desc "><i>Created a game in python using the 'pygame' module. This game was inspired by the 1978 Space Invaders Arcade Game</i></p> <br>
+                    </div>
                 </div>
-                <a href="https://github.com/AaronRoyan/Ermutigen---Discord-Bot" target="_blank">
-                    <img class="project-images right" src="images/discord.png " alt=" ">
+                <a href="# ">
+                    <img class="project-imagesb" src="/images/space1.png" alt="Mars Invaders">
+                </a>
+            </div> <br>
+            <!-- Ermutigen -->
+            <div class="portfolio-container transition3 ">
+                <div class="portfolio-left ">
+                    <div class="inner inner-left grid-left">
+                        <p class="subtitle prjd"><b>Ermutigen</b></p> <br>
+                        <p class="featured-desc "><i>Ermutigen is a discord bot that encourages users and says/types some supportive and encouraging messages. Ermutigen is the German word for encourage.</i></p> <br>
+                    </div>
+                </div>
+                <a href="# ">
+                    <img class="project-imagesc" src="images/discord.png " alt=" ">
+                </a>
+            </div> <br>
+            <!-- Neerathon -->
+            <div class="portfolio-container transition3 ">
+                <div class="portfolio-left ">
+                    <div class="inner inner-left grid-left">
+                        </p>
+                        <p class="subtitle prj"><b>Neerathon</b></p> <br>
+                        <p class="featured-desc "><i>Neerathon is a marathon that is organized by a massive and well-known Association of my College once a year with nearly thousands of participants. My team an I created a Full-Stack Website to manage and record the entries of all the Participants. </i></p>
+                        <br>
+                    </div>
+                </div>
+                <a href="# ">
+                    <img class="project-images" src="images/runner.png " alt="Runne ">
+                </a>
+            </div> <br>
+            <!-- Bike Game -->
+            <div class="portfolio-container transition3 ">
+                <div class="portfolio-left ">
+                    <div class="inner inner-left grid-left">
+                        </p>
+                        <p class="subtitle prj"><b>Trial Bike Pro</b></p> <br>
+                        <p class="featured-desc "><i>A motorcycle video game made from c++ using SDL(Simple DirectMedia Layer) that is a language used to describe real-time systems which I used to create the game.</i></p> <br>
+                    </div>
+                </div>
+                <a href="# "><img class="project-images" src="images/bike3.jpg.png " alt=" ">
                 </a>
             </div>
-
-        </div> <br>
-        <!-- Neerathon -->
-        <div class="portfolio-container transition3 ">
-            <div class="portfolio-left ">
-                <div class=" inner-left grid-left">
-                    </p>
-                    <p class="subtitle prj"><b>Neerathon</b></p> <br>
-                    <p class="featured-desc "><i>Neerathon is a marathon that is organized by a massive and well-known Association of my College once a year with nearly thousands of participants. My team an I created a Full-Stack Website to manage and record the entries of all the Participants. </i></p>
-                    <br>
-                </div>
-                <a href="https://github.com/AaronRoyan/Neerathon" target="_blank">
-                    <img class="project-images right" src="images/runner.png " alt="Runne ">
-                </a>
-            </div>
-        </div> <br>
-        <!-- Bike Game -->
-        <div class="portfolio-container transition3 ">
-            <div class="portfolio-left ">
-                <div class="inner inner-left grid-left">
-                    </p>
-                    <p class="subtitle prj"><b>Trial Bike Pro</b></p> <br>
-                    <p class="featured-desc "><i>A motorcycle video game made from c++ using SDL(Simple DirectMedia Layer) that is a language used to describe real-time systems which I used to create the game.</i></p> <br>
-                </div>
-                <a href="#" target="_blank"><img class="project-images right" src="images/bike3.jpg.png " alt=" "></a>
-            </div>
-        </div>
-    </section>
-    <i><p class="muchMore">and <a  href="https://github.com/AaronRoyan?tab=repositories" target="_blank">much</a> more...</p></i>
-    <!-- <h2 class="want">Want to Discuss a</h2>
+        </section>
+        <i><p class="muchMore">and <a  href="https://github.com/AaronRoyan?tab=repositories" target="_blank">much</a> more...</p></i>
+        <!-- <h2 class="want">Want to Discuss a</h2>
         <footer class="footer-container">
             <h2 class="project">New Project?</h2>
         </footer> -->
-    <footer class="footer-ele1">
-        <svg class="footer-ele1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1964" height="418" viewBox="100 0 1964 418">
+        <footer class="footer-ele1">
+            <svg class="footer-ele1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1964" height="418" viewBox="100 0 1964 418">
             <g class="Rectangle_21" data-name="Rectangle 21" transform="translate(0 102)" fill="#720126" stroke="#fcff9c" stroke-width="1">
-              <rect class="mainFooterRect" width="2200" height="514" stroke="none"/>
-              
+              <rect class="mainFooterRect" width="2200" height="514" stroke="none"/>              
             </g>
             <g class="Component_1_3" data-name="Component 1 – 3" transform="translate(117 164)">
               <text class="Aaron_Royan" data-name="Aaron Royan" transform="translate(2 144)" font-size="133" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
@@ -223,11 +264,11 @@
             </g>
             <text class="Send_me_a_E-mail" data-name="Send me a E-mail" transform="translate(1230 275)" fill="#720126" stroke="#000" stroke-width="2" font-size="74" font-family="MyanmarText-Bold, Myanmar Text" font-weight="700"><tspan x="-19" y="76"><a href="mailto:aaron.dom.royan@gmail.com">Send me an E-mail</a></tspan></text>
           </svg>
-    </footer>
-    <footer class="footer-ele2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="794" height="235" viewBox="0 0 794 235">
+        </footer>
+        <footer class="footer-ele2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="794" height="235" viewBox="0 0 794 235">
             <g id="Rectangle_21" data-name="Rectangle 21" transform="translate(0 63)" fill="#720126"  stroke-width="1">
-              <rect class="redMain" width="800" height="172" stroke="none"/>
+              <rect class="redMain" width="592" height="172" stroke="none"/>
               
             </g>
             <text class="redtxt" id="Want_to_Discuss_a_" data-name="Want to Discuss a " transform="translate(27)" fill="#720126" style="font-size:8vw;" font-family="Playfair Display" font-weight="700"><tspan x="50" y="51">Want to Discuss a </tspan></text>
@@ -236,23 +277,51 @@
               <rect width="276" height="77" rx="38.5" <tspan x="110" y="0" xml:space="preserve"></tspan> stroke="none"/>
               
             </g>
-            <a href="mailto::aaron.dom.royan@gmail.com">
+            <a href="mailto:aaron.dom.royan@gmail.com">
             <text id="Send_me_a_E-mail" data-name="Send me a E-mail" transform="translate(97 160)" fill="#720126" stroke="#000" stroke-width="2" font-size="29" font-family="MyanmarText-Bold, Myanmar Text" font-weight="700"><tspan x="110" y="31">Send me a E-mail</tspan></text>
           </a>
         </svg>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        </footer>
+    </div>
     <script>
+        window.addEventListener('scroll', function() {
+            let header = document.querySelector('.nav-container');
+            let windowPosition = window.scrollY > 0;
+            header.classList.toggle('scrolling-active-header', windowPosition);
+        })
+
+        window.addEventListener('scroll', function() {
+            let header = document.querySelector('.social-header');
+            let windowPosition = window.scrollY > 0;
+            header.classList.toggle('scrolling-active-social', windowPosition);
+        })
+        window.addEventListener('scroll', function() {
+            let header = document.querySelector('.white');
+            let windowPosition = window.scrollY > 0;
+            header.classList.toggle('scrolling-active-white', windowPosition);
+        })
+        window.addEventListener('scroll', function() {
+            let header = document.querySelector('.black');
+            let windowPosition = window.scrollY > 0;
+            header.classList.toggle('scrolling-active-black', windowPosition);
+        })
+
+
         gsap.registerPlugin(ScrollTrigger);
         var tl = gsap.timeline();
-        tl.from('.content', {
-            y: '-30%',
+        tl.from('header', 1.2, {
+            x: '-100',
             opacity: 0,
             duration: 1.4,
             ease: Power4.easeOut
-        }, "-=1")
+        })
+        tl.from('.content', 1.2, {
+            x: '-100',
+            opacity: 0,
+            duration: 1.4,
+            ease: Power4.easeOut
+        })
+
         tl.from('.social-stagger', {
             x: '-30%',
             opacity: 0,
@@ -266,7 +335,7 @@
             stagger: .3,
             duration: 1,
             ease: Power4.easeOut
-        }, '-=1.3')
+        }, '-=.5')
 
         tl.from('.stagger1', {
             opacity: 0,
@@ -274,13 +343,14 @@
             stagger: .3,
             duration: 2,
             ease: Power4.easeOut
-        })
+        }, '-=1')
+
         tl.from('.hero-design', {
-            y: '50',
+            y: '-50',
             opacity: 0,
             duration: 1,
             ease: Power4.easeOut
-        })
+        }, '-=.5')
         tl.from('.right-img', {
             y: '500',
             opacity: 0,
@@ -294,7 +364,56 @@
             duration: 1,
             ease: Sine.easeOut,
             y: '-500'
-        }, '-=1')
+        })
+        gsap.from('.transition2', {
+            ScrollTrigger: {
+                trigger: '.transition2',
+                start: 'top bottom',
+                marker: true,
+                toggleActions: "restart pause resume pause",
+                scrub: true
+            },
+            y: 50,
+            opacity: 0,
+            ease: Sine.easeOut,
+            duration: 1.2,
+            stagger: .3
+        })
+        gsap.from('.portfolio', {
+            ScrollTrigger: {
+                trigger: '.portfolio',
+                start: 'center bottom',
+                marker: true,
+                toggleActions: "restart pause resume pause",
+                scrub: true
+            },
+            y: -50,
+            opacity: 0,
+            duration: 1.2,
+            ease: Sine.easeOut,
+            stagger: .3
+        })
+        var typed = new Typed('.element', {
+            strings: ['Student by day, Programmer by Night !^2000', 'Student by day, Digital Artist by Night ! ^2000', 'Student by day, Game Developer by Night ! ^2000'],
+            smartBackspace: true, // Default value,
+            typeSpeed: 30,
+            // time before typing starts
+            startDelay: 1200,
+            // backspacing speed
+            backSpeed: 20,
+            // time before backspacing
+            backDelay: 500,
+            // loop
+            loop: true,
+            // false = infinite
+            loopCount: 5,
+            // show cursor
+            showCursor: false,
+            // character for cursor
+            cursorChar: "|",
+            // attribute to type (null == text)
+            attr: null,
+        });
     </script>
 </body>
 

@@ -1,15 +1,71 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  min-height: 100vh;
   margin: 0;
   font-family: 'Playfair Display', arial;
   overflow-x: hidden;
+}
+
+#menuToggle {
+  display: none;
+}
+
+.element::after {
+  content: '|';
+  display: inline;
+  -webkit-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+
+/*Removes cursor that comes with typed.js*/
+.element-cursor {
+  opacity: 0;
+  display: none;
+}
+
+/*Custom cursor animation*/
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+}
+
+.scrolling-active-black {
+  color: white;
+}
+
+.scrolling-active-white {
+  color: black;
+}
+
+.portfolio-container img {
+  width: 350px;
 }
 
 .muchMore {
@@ -22,52 +78,11 @@ ul {
   color: #720126;
 }
 
-.aboutwork {
-  margin-left: -5em;
-}
-
-.aboutwork li {
-  display: table-cell;
-  position: relative;
-  padding: 15px 0 15px -1em;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.aboutwork a {
-  color: #fff;
-  text-transform: uppercase;
+.muchMore {
+  text-align: center;
+  font-size: 1.8em;
   text-decoration: none;
-  letter-spacing: 0.15em;
-  display: inline-block;
-  padding: 15px 20px;
-  position: relative;
-}
-
-.aboutwork a:after {
-  background: none repeat scroll 0 0 transparent;
-  bottom: 0;
-  content: "";
-  display: block;
-  height: 2px;
-  left: 50%;
-  position: absolute;
-  background: #fff;
-  -webkit-transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  transition: width 0.3s ease 0s, left 0.3s ease 0s;
-  width: 0;
-}
-
-.aboutwork a:hover:after {
-  width: 100%;
-  left: 0;
-}
-
-@media screen and (max-height: 300px) {
-  .aboutwork ul {
-    margin-top: 40px;
-  }
+  color: black;
 }
 
 .right_img {
@@ -88,6 +103,12 @@ img {
 }
 
 .nav-container {
+  position: --webkit-sticky;
+  /* Safari */
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   background: #720126;
 }
 
@@ -139,10 +160,8 @@ img {
   cursor: pointer;
 }
 
-.social-header ul {
+.linkedln-logo:hover {
   cursor: pointer;
-  float: right;
-  padding: 0 0 0 1em;
 }
 
 .github-sign:hover {
@@ -195,6 +214,11 @@ header ul a {
 .social-header,
 .hero-design {
   display: none;
+  position: relative;
+}
+
+.right {
+  display: none;
 }
 
 .hero {
@@ -210,6 +234,7 @@ header ul a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: initial;
   margin: 0 auto;
   width: 200px;
   font-weight: bold;
@@ -330,27 +355,252 @@ section {
   text-decoration-thickness: 5px;
 }
 
+@media only screen and (min-width: 590px) {
+  .ye .right_img {
+    display: unset;
+    border-radius: .7em;
+  }
+  .photo-box .right_img {
+    display: none;
+    border-radius: .7em;
+  }
+  .logo text {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .logo text {
+    width: 100%;
+  }
+  .portfolio-container img {
+    width: 15em;
+  }
+  .aboutwork {
+    display: none;
+  }
+  #menuToggle {
+    display: unset;
+  }
+  #menuToggle ul li {
+    color: #720126;
+  }
+  a {
+    text-decoration: none;
+    color: #720126;
+    -webkit-transition: color 0.3s ease;
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #720126;
+  }
+  #menuToggle {
+    display: block;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+     -ms-user-select: none;
+         user-select: none;
+  }
+  #menuToggle input {
+    display: block;
+    width: 40px;
+    height: 32px;
+    position: absolute;
+    top: -7px;
+    left: -5px;
+    cursor: pointer;
+    opacity: 0;
+    /* hide this */
+    z-index: 2;
+    /* and place it over the hamburger */
+    -webkit-touch-callout: none;
+  }
+  /*
+      * Just a quick hamburger
+      */
+  #menuToggle span {
+    display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #FCFF9C;
+    border-radius: 3px;
+    z-index: 1;
+    -webkit-transform-origin: 4px 0px;
+            transform-origin: 4px 0px;
+    -webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  #menuToggle span:first-child {
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+  #menuToggle span:nth-last-child(2) {
+    -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+  }
+  /* 
+      * Transform all the slices of hamburger
+      * into a crossmark.
+      */
+  #menuToggle input:checked ~ span {
+    opacity: 1;
+    -webkit-transform: rotate(45deg) translate(-2px, -1px);
+            transform: rotate(45deg) translate(-2px, -1px);
+    background: #720126;
+  }
+  /*
+      * But let's hide the middle one.
+      */
+  #menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+            transform: rotate(0deg) scale(0.2, 0.2);
+  }
+  #menuToggle input:checked ~ span:nth-last-child(2) {
+    opacity: 1;
+    -webkit-transform: rotate(-45deg) translate(0, -1px);
+            transform: rotate(-45deg) translate(0, -1px);
+  }
+  #menu {
+    position: absolute;
+    width: 300px;
+    margin: -100px 10px 0 0;
+    padding: 50px;
+    padding-top: 125px;
+    right: -100px;
+    background: #FCFF9C;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+    -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+  #menu li {
+    padding: 10px 0;
+    font-size: 22px;
+  }
+  /*
+      * And let's fade it in from the left
+      */
+  #menuToggle input:checked ~ ul {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 520px) and (max-width: 500px) {
+  #menu {
+    -webkit-transform: none;
+            transform: none;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    transition: opacity 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  }
+}
+
 @media only screen and (min-width: 800px) {
-  .featured .portfolio p {
+  .scrolling-active-header {
+    background: #720126;
+    -webkit-transition: ease .3s;
+    transition: ease .3s;
+    -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  }
+  .scrolling-active-header li {
+    padding-left: 1em;
+    padding-right: 4em;
+  }
+  .scrolling-active-header li a {
+    margin-left: 30%;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: left;
+        grid-template-columns: left;
+  }
+  .scrolling-active-social {
+    background: #720126;
+    z-index: -1;
+    -webkit-transition: ease .3s;
+    transition: ease .3s;
+    -webkit-box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 1rem rgba(0, 0, 0, 0.1);
+  }
+  .scrolling-active-social img {
+    color: white;
+    padding-right: 2em;
+    width: 30px;
+  }
+  .nav-container .aboutwork li {
+    margin-left: 0%;
+    font-size: 1em;
+  }
+  .ye .right_img {
+    display: none;
+  }
+  .photo-box ul {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (auto)[3];
+        grid-template-columns: repeat(3, auto);
+    height: 40vh;
+    width: 100vh;
+    z-index: -1;
+    grid-gap: .2em;
+  }
+  .photo-box ul .right_img {
+    display: unset;
+    border-radius: .7em;
+    padding: 5em 5em 0 0;
+  }
+  .aboutMe,
+  .yoyo,
+  .yoyo1 {
+    text-align: left;
+  }
+  .featured .portfolio {
     text-align: left;
   }
   .featured .portfolio img {
     place-content: right;
   }
-  .featured, .portfolio-container {
+  .portfolio-container img {
+    width: 310px;
+  }
+  .featured,
+  .portfolio-container {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 48% auto;
-        grid-template-columns: 48% auto;
+    -ms-grid-columns: 50% auto;
+        grid-template-columns: 50% auto;
   }
-  .left, .portfolio-left {
+  .left,
+  .portfolio-left {
     display: -ms-grid;
     display: grid;
     place-content: left;
+    place-content: center;
+    margin: 0 17% 0 0;
   }
   .right {
-    margin-left: 2em;
+    margin-left: 5em;
     margin-top: 1em;
+  }
+  .inner-left p {
+    text-align: left;
   }
   .skills {
     margin-top: -5em;
@@ -367,8 +617,12 @@ section {
   .portfolio {
     padding-top: 7em;
   }
+  .portfolio .portfolio-container {
+    padding: 1em 0;
+  }
   .portfolio-container img {
     margin-left: 2em;
+    width: 18em;
   }
   .footer-ele2 {
     display: none;
@@ -376,54 +630,71 @@ section {
   .footer-ele1 {
     display: unset;
     width: 100%;
+    padding-top: 0;
+    padding-bottom: -200px;
+    position: relative;
+  }
+  @-webkit-keyframes footer-ele1 {
+    from {
+      -webkit-transform: translate(0px, 102px);
+              transform: translate(0px, 102px);
+    }
+    to {
+      -webkit-transform: translate(0px, 130px);
+              transform: translate(0px, 130px);
+    }
+  }
+  @keyframes footer-ele1 {
+    from {
+      -webkit-transform: translate(0px, 102px);
+              transform: translate(0px, 102px);
+    }
+    to {
+      -webkit-transform: translate(0px, 130px);
+              transform: translate(0px, 130px);
+    }
   }
 }
 
 @media only screen and (min-width: 1050px) {
-  .social-header ul {
-    cursor: pointer;
-    float: right;
-    padding: 0 0 0 1em;
+  .overall-container {
+    max-width: 1350px;
+    margin: 0 auto;
   }
   .featured {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 50% 40%;
-        grid-template-columns: 50% 40%;
+    -ms-grid-columns: 66% auto;
+        grid-template-columns: 66% auto;
     padding-top: 12em;
   }
   .featured .inner .transition2 {
-    padding: 20em 0 0 0;
+    padding: 40em -2em;
   }
-  .featured .right_img {
-    width: 100%;
-    height: 100%;
-    float: right;
-    grid-area: left;
-    border-radius: .3em;
-    -webkit-box-shadow: 10px 10px 5px 5px rgba(0, 0, 255, 0.2);
-            box-shadow: 10px 10px 5px 5px rgba(0, 0, 255, 0.2);
+  .featured .left {
+    padding: 3em 0 3em 1em;
   }
   .featured .left .aboutMe {
-    font-size: 2em;
+    font-size: 1.4em;
     text-align: left;
   }
   .featured .left .yoyo1 {
-    font-size: 2em;
     text-align: left;
-    color: #D86087;
+    font-size: 1.3em;
+    color: black;
   }
   .featured .left .yoyo {
-    font-size: 2.4em;
     text-align: left;
+    font-size: 1.7em;
   }
   .featured img {
-    display: unset;
-    float: left;
+    float: right;
     padding: 100px 0 0 -10px;
+    height: 40vh;
+    border-radius: 1em;
   }
   .featured .featured-title {
-    font-size: 1.8em;
+    font-size: 1em;
   }
   .hero {
     height: 40vh;
@@ -440,10 +711,13 @@ section {
     background: #720126;
   }
   .nav-container .aboutwork {
+    width: 16em;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 1em 0;
+    cursor: pointer;
+    z-index: 1;
+    margin-left: 30%;
   }
   header {
     padding: 2em 4em 2em 3em;
@@ -470,33 +744,26 @@ section {
   .social-header ul img {
     width: 20px;
   }
-  .aboutwork ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    width: 15em;
-    float: right;
-  }
   .hero {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 66% auto;
         grid-template-columns: 66% auto;
     background: unset;
-    padding: 0 0 20em 0;
+    padding: 0 0 10em 0;
   }
   .hero .content {
     background: #80002A;
     padding: 6em 8em 6em 4em;
+    height: 40vh;
     text-align: left;
+    padding-bottom: -25%;
   }
   .hero .content h1 {
-    font-size: 3em;
+    font-size: 4em;
     line-height: 1.2em;
     margin: -10% 25% 0 0;
+    padding-right: 2em;
   }
   .meet {
     margin: unset;
@@ -504,9 +771,9 @@ section {
   }
   .hero-design {
     display: unset;
-    margin: -16.6% 0 0 -44%;
-    width: 600px;
-    padding: 0 0 2em 0;
+    margin: -11% 0 0 -43.5%;
+    width: 45em;
+    padding: .3em 0 0 0;
   }
   .portfolio img {
     float: right;
@@ -520,11 +787,22 @@ section {
     width: 100%;
     margin-right: -10%;
   }
+  .portfolio-container .featured-desc {
+    font-size: 1em;
+  }
 }
 
 @media only screen and (min-width: 1250px) {
+  .aboutwork {
+    margin-left: 30%;
+    width: 20%;
+    padding-left: 2em;
+  }
   header {
     padding: 2em 2em 2em 5em;
+  }
+  .content .h1 {
+    margin: -15% 55% 0 0;
   }
   .social-header {
     padding: 2em 10em 2em 0;
@@ -538,7 +816,7 @@ section {
   .hero h1 {
     font-size: 3em;
     line-height: 1.2em;
-    margin: -10% 30% 0 0;
+    margin: -10% 50% 0 0;
   }
   .featured {
     display: -ms-grid;
@@ -548,6 +826,11 @@ section {
   }
   .featured img {
     padding-top: 50px;
+  }
+  .skills-container ul {
+    display: -ms-grid;
+    display: grid;
+    grid-gap: 2em;
   }
 }
 
@@ -576,6 +859,118 @@ section {
   to {
     -webkit-transform: translate(0px, 41px);
             transform: translate(0px, 41px);
+  }
+}
+
+.emo {
+  -webkit-animation: bounce 0.5s;
+          animation: bounce 0.5s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+    z-index: 5;
+  }
+  to {
+    -webkit-transform: translate(0px, 5px);
+            transform: translate(0px, 5px);
+  }
+}
+
+@keyframes bounce {
+  from {
+    -webkit-transform: translate(0px, 0px);
+            transform: translate(0px, 0px);
+    z-index: 5;
+  }
+  to {
+    -webkit-transform: translate(0px, 5px);
+            transform: translate(0px, 5px);
+  }
+}
+
+.Path_1 {
+  animation: Path_1Anim 1s infinite alternate-reverse;
+}
+
+@-webkit-keyframes Path_1Anim {
+  from {
+    -webkit-transform: translate(-1403px, -373.266px);
+            transform: translate(-1403px, -373.266px);
+  }
+  to {
+    -webkit-transform: translate(-1403px, -388.266px);
+            transform: translate(-1403px, -388.266px);
+  }
+}
+
+@keyframes Path_1Anim {
+  from {
+    -webkit-transform: translate(-1403px, -373.266px);
+            transform: translate(-1403px, -373.266px);
+  }
+  to {
+    -webkit-transform: translate(-1403px, -388.266px);
+            transform: translate(-1403px, -388.266px);
+  }
+}
+
+.Path_3 {
+  animation: Path_3Anim 1s infinite alternate-reverse;
+}
+
+@-webkit-keyframes Path_3Anim {
+  from {
+    -webkit-transform: translate(2239.729px, 1762.355px);
+            transform: translate(2239.729px, 1762.355px);
+  }
+  to {
+    -webkit-transform: translate(2239.729px, 1792.355px);
+            transform: translate(2239.729px, 1792.355px);
+  }
+}
+
+@keyframes Path_3Anim {
+  from {
+    -webkit-transform: translate(2239.729px, 1762.355px);
+            transform: translate(2239.729px, 1762.355px);
+  }
+  to {
+    -webkit-transform: translate(2239.729px, 1792.355px);
+            transform: translate(2239.729px, 1792.355px);
+  }
+}
+
+.subtitle {
+  -webkit-animation: sup 3s infinite slidein;
+          animation: sup 3s infinite slidein;
+}
+
+@-webkit-keyframes sup {
+  from {
+    margin-left: 10%;
+    width: 300%;
+  }
+  to {
+    margin-left: 10%;
+    width: 100%;
+  }
+}
+
+@keyframes sup {
+  from {
+    margin-left: 10%;
+    width: 300%;
+  }
+  to {
+    margin-left: 10%;
+    width: 100%;
   }
 }
 /*# sourceMappingURL=main.css.map */

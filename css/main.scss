@@ -1,10 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    min-height: 100vh;
     margin: 0;
     font-family: 'Playfair Display', arial;
     overflow-x: hidden;
+}
+
+#menuToggle {
+    display: none;
+}
+
+.element::after {
+    content: '|';
+    display: inline;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite;
+}
+
+
+/*Removes cursor that comes with typed.js*/
+
+.element-cursor {
+    opacity: 0;
+    display: none;
+}
+
+
+/*Custom cursor animation*/
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 ul {
@@ -13,55 +73,36 @@ ul {
     padding: 0;
 }
 
+.scrolling-active-black {
+    color: white;
+}
+
+.scrolling-active-white {
+    color: black;
+}
+
+.portfolio-container {
+    img {
+        width: 350px;
+    }
+}
+
 .muchMore {
     text-align: center;
     font-size: 1.8em;
     text-decoration: none;
-    a{
+    a {
         color: #720126;
-
     }
 }
-         .aboutwork{  
-             margin-left: -5em;
-            li { 
-                display: table-cell; 
-                position: relative; 
-                padding: 15px 0 15px -1em;
-                justify-content: space-between;
-            }
-            a {
-                color: #fff;
-                text-transform: uppercase;
-                text-decoration: none;
-                letter-spacing: 0.15em;
-                
-                display: inline-block;
-                padding: 15px 20px;
-                position: relative;
-            }
-            a:after {    
-                background: none repeat scroll 0 0 transparent;
-                bottom: 0;
-                content: "";
-                display: block;
-                height: 2px;
-                left: 50%;
-                position: absolute;
-                background: #fff;
-                transition: width 0.3s ease 0s, left 0.3s ease 0s;
-                width: 0;
-            }
-            a:hover:after { 
-                width: 100%; 
-                left: 0; 
-            }
-            @media screen and (max-height: 300px) {
-                ul {
-                    margin-top: 40px;
-                }
-            }
-        }
+
+.muchMore {
+    text-align: center;
+    font-size: 1.8em;
+    text-decoration: none;
+    color: black;
+}
+
 .right_img {
     display: none;
 }
@@ -80,6 +121,11 @@ img {
 }
 
 .nav-container {
+    position: --webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1;
     background: #720126;
     a {
         color: #FCFF9C;
@@ -126,12 +172,8 @@ img {
     cursor: pointer;
 }
 
-.social-header {
-    ul{
+.linkedln-logo:hover {
     cursor: pointer;
-    float: right;
-    padding: 0 0 0 1em;
-    }
 }
 
 .github-sign:hover {
@@ -175,8 +217,12 @@ header {
 .social-header,
 .hero-design {
     display: none;
+    position: relative;
 }
 
+.right {
+    display: none;
+}
 
 .hero {
     background: #80002A;
@@ -188,6 +234,7 @@ header {
 
 .meet {
     display: flex;
+    position: initial;
     margin: 0 auto;
     width: 200px;
     font-weight: bold;
@@ -299,98 +346,323 @@ section {
     text-decoration-thickness: 5px;
 }
 
-@media only screen and (min-width:800px) {
-    .featured .portfolio{
-        p{
-            text-align: left;
+@media only screen and (min-width:590px) {
+    .ye {
+        .right_img {
+            display: unset;
+            border-radius: .7em;
         }
-        img{
+    }
+    .photo-box {
+        .right_img {
+            display: none;
+            border-radius: .7em;
+        }
+    }
+    .logo {
+        text {
+            width: 100%;
+        }
+    }
+}
+
+@media only screen and (max-width:520px) {
+    .logo {
+        text {
+            width: 100%;
+        }
+    }
+    .portfolio-container {
+        img {
+            width: 15em;
+        }
+    }
+    .aboutwork {
+        display: none;
+    }
+    #menuToggle {
+        display: unset;
+        ul {
+            li {
+                color: #720126
+            }
+        }
+    }
+    a {
+        text-decoration: none;
+        color: #720126;
+        transition: color 0.3s ease;
+    }
+    a:hover {
+        color: #720126;
+    }
+    #menuToggle {
+        display: block;
+        position: absolute;
+        top: 50px;
+        right: 50px;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+    #menuToggle input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -7px;
+        left: -5px;
+        cursor: pointer;
+        opacity: 0;
+        /* hide this */
+        z-index: 2;
+        /* and place it over the hamburger */
+        -webkit-touch-callout: none;
+    }
+    /*
+      * Just a quick hamburger
+      */
+    #menuToggle span {
+        display: block;
+        width: 33px;
+        height: 4px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #FCFF9C;
+        border-radius: 3px;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+    }
+    #menuToggle span:first-child {
+        transform-origin: 0% 0%;
+    }
+    #menuToggle span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+    }
+    /* 
+      * Transform all the slices of hamburger
+      * into a crossmark.
+      */
+    #menuToggle input:checked~span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-2px, -1px);
+        background: #720126;
+    }
+    /*
+      * But let's hide the middle one.
+      */
+    #menuToggle input:checked~span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+    }
+    #menuToggle input:checked~span:nth-last-child(2) {
+        opacity: 1;
+        transform: rotate(-45deg) translate(0, -1px);
+    }
+    #menu {
+        position: absolute;
+        width: 300px;
+        margin: -100px 10px 0 0;
+        padding: 50px;
+        padding-top: 125px;
+        right: -100px;
+        background: #FCFF9C;
+        list-style-type: none;
+        -webkit-font-smoothing: antialiased;
+        /* to stop flickering of text in safari */
+        transform-origin: 0% 0%;
+        transform: translate(100%, 0);
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    }
+    #menu li {
+        padding: 10px 0;
+        font-size: 22px;
+    }
+    /*
+      * And let's fade it in from the left
+      */
+    #menuToggle input:checked~ul {
+        transform: none;
+        opacity: 1;
+    }
+    @media screen and (max-width: 500px) {
+        #menu {
+            transform: none;
+            opacity: 0;
+            transition: opacity 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+    }
+}
+
+@media only screen and (min-width:800px) {
+    .scrolling-active-header {
+        background: #720126;
+        transition: ease .3s;
+        box-shadow: 0 3px 1rem rgba(0, 0, 0, .1);
+        li {
+            padding-left: 1em;
+            padding-right: 4em;
+            a {
+                margin-left: 30%;
+                display: grid;
+                grid-template-columns: left;
+            }
+        }
+    }
+    .scrolling-active-social {
+        background: #720126;
+        z-index: -1;
+        transition: ease .3s;
+        box-shadow: 0 3px 1rem rgba(0, 0, 0, .1);
+        img {
+            color: white;
+            padding-right: 2em;
+            width: 30px;
+        }
+    }
+    .nav-container {
+        .aboutwork {
+            li {
+                margin-left: 0%;
+                font-size: 1em;
+            }
+        }
+    }
+    .ye {
+        .right_img {
+            display: none;
+        }
+    }
+    .photo-box ul {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        height: 40vh;
+        width: 100vh;
+        z-index: -1;
+        grid-gap: .2em;
+        .right_img {
+            display: unset;
+            border-radius: .7em;
+            padding: 5em 5em 0 0;
+        }
+        // padding-top: 2em;
+        // padding-left: -2em;
+        // padding-bottom: 2em;
+        // border-radius: .7em;
+        // width: 100%;
+    }
+    .aboutMe,
+    .yoyo,
+    .yoyo1 {
+        text-align: left;
+    }
+    .featured .portfolio {
+        text-align: left;
+        img {
             place-content: right;
         }
-
     }
-    .featured, .portfolio-container{
+    .portfolio-container {
+        img {
+            width: 310px;
+        }
+    }
+    .featured,
+    .portfolio-container {
         display: grid;
-        grid-template-columns: 48% auto;
+        grid-template-columns: 50% auto;
     }
-    .left, .portfolio-left{
+    .left,
+    .portfolio-left {
         display: grid;
         place-content: left;
+        place-content: center;
+        margin: 0 17% 0 0;
     }
-    .right{
-        margin-left:2em;
-        margin-top:1em;
+    .right {
+        margin-left: 5em;
+        margin-top: 1em;
     }
-    .skills{
+    .inner-left {
+        p {
+            text-align: left;
+        }
+    }
+    .skills {
         margin-top: -5em;
         margin-bottom: -7em;
         padding-top: 7em;
     }
-    .skills-container ul{
+    .skills-container ul {
         display: grid;
-        grid-template-columns: repeat(3,auto);
+        grid-template-columns: repeat(3, auto);
         grid-gap: 1em;
-
     }
-    .portfolio{
+    .portfolio {
         padding-top: 7em;
+        .portfolio-container {
+            padding: 1em 0;
+        }
     }
-    .portfolio-container img{
+    .portfolio-container img {
         margin-left: 2em;
+        width: 18em;
     }
-    .footer-ele2{
+    .footer-ele2 {
         display: none;
     }
-    .footer-ele1{
+    .footer-ele1 {
         display: unset;
         width: 100%;
+        padding-top: 0;
+        padding-bottom: -200px;
+        position: relative;
+    }
+    @keyframes footer-ele1 {
+        from {
+            transform: translate(0px, 102px);
+        }
+        to {
+            transform: translate(0px, 130px);
+        }
     }
 }
 
 @media only screen and (min-width: 1050px) {
-    .social-header {
-        ul{
-        cursor: pointer;
-        float: right;
-        padding: 0 0 0 1em;
-        }
+    .overall-container {
+        max-width: 1350px;
+        margin: 0 auto;
     }
     .featured {
         display: grid;
-        grid-template-columns: 50% 40%;
+        grid-template-columns: 66% auto;
         .inner .transition2 {
-            padding: 20em 0 0 0;
-        }
-        .right_img {
-            width: 100%;
-            height: 100%;
-            float: right;
-            grid-area: left;
-            border-radius: .3em;
-            box-shadow: 10px 10px 5px 5px rgba(0, 0, 255, .2);
+            padding: 40em -2em;
         }
         .left {
+            padding: 3em 0 3em 1em;
             .aboutMe {
-                font-size: 2em;
+                font-size: 1.4em;
                 text-align: left;
             }
             .yoyo1 {
-                font-size: 2em;
                 text-align: left;
-                color: #D86087;
+                font-size: 1.3em;
+                color: black;
             }
             .yoyo {
-                font-size: 2.4em;
                 text-align: left;
+                font-size: 1.7em;
             }
         }
         img {
-            display: unset;
-            float: left;
+            float: right;
             padding: 100px 0 0 -10px;
+            height: 40vh;
+            border-radius: 1em;
         }
         .featured-title {
-            font-size: 1.8em;
+            font-size: 1em;
         }
         padding-top: 12em;
     }
@@ -406,8 +678,11 @@ section {
             background: #720126;
         }
         .aboutwork {
+            width: 16em;
             justify-content: space-between;
-            padding: 0 1em 0;
+            cursor: pointer;
+            z-index: 1;
+            margin-left: 30%;
         }
     }
     header {
@@ -431,28 +706,23 @@ section {
             }
         }
     }
-    .aboutwork {
-        ul {
-            display: flex;
-            justify-content: space-between;
-            width: 15em;
-            float: right;
-        }
-    }
     .hero {
         display: grid;
         grid-template-columns: 66% auto;
         background: unset;
-        padding: 0 0 20em 0;
+        padding: 0 0 10em 0;
         .content {
             background: #80002A;
             padding: 6em 8em 6em 4em;
+            height: 40vh;
             text-align: left;
             h1 {
-                font-size: 3em;
+                font-size: 4em;
                 line-height: 1.2em;
                 margin: -10% 25% 0 0;
+                padding-right: 2em;
             }
+            padding-bottom: -25%;
         }
     }
     .meet {
@@ -461,9 +731,9 @@ section {
     }
     .hero-design {
         display: unset;
-        margin: -16.6% 0 0 -44%;
-        width: 600px;
-        padding: 0 0 2em 0;
+        margin: -11% 0 0 -43.5%;
+        width: 45em;
+        padding: .3em 0 0 0;
     }
     .portfolio img {
         float: right;
@@ -477,11 +747,26 @@ section {
         width: 100%;
         margin-right: -10%;
     }
+    .portfolio-container {
+        .featured-desc {
+            font-size: 1em;
+        }
+    }
 }
 
 @media only screen and (min-width: 1250px) {
+    .aboutwork {
+        margin-left: 30%;
+        width: 20%;
+        padding-left: 2em;
+    }
     header {
         padding: 2em 2em 2em 5em;
+    }
+    .content {
+        .h1 {
+            margin: -15% 55% 0 0;
+        }
     }
     .social-header {
         padding: 2em 10em 2em 0;
@@ -496,7 +781,7 @@ section {
         h1 {
             font-size: 3em;
             line-height: 1.2em;
-            margin: -10% 30% 0 0;
+            margin: -10% 50% 0 0;
         }
     }
     .featured {
@@ -505,6 +790,10 @@ section {
         img {
             padding-top: 50px;
         }
+    }
+    .skills-container ul {
+        display: grid;
+        grid-gap: 2em;
     }
 }
 
@@ -519,5 +808,62 @@ section {
     }
     to {
         transform: translate(0px, 41px);
+    }
+}
+
+.emo {
+    animation: bounce 0.5s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    from {
+        transform: translate(0px, 0px);
+        z-index: 5;
+    }
+    to {
+        transform: translate(0px, 5px);
+    }
+}
+
+.Path_1 {
+    animation: Path_1Anim 1s infinite alternate-reverse;
+}
+
+@keyframes Path_1Anim {
+    from {
+        transform: translate(-1403px, -373.266px);
+    }
+    to {
+        transform: translate(-1403px, -388.266px);
+    }
+}
+
+.Path_3 {
+    animation: Path_3Anim 1s infinite alternate-reverse;
+}
+
+@keyframes Path_3Anim {
+    from {
+        transform: translate(2239.729px, 1762.355px);
+    }
+    to {
+        transform: translate(2239.729px, 1792.355px);
+    }
+}
+
+.subtitle {
+    animation: sup 3s infinite slidein;
+}
+
+@keyframes sup {
+    from {
+        margin-left: 10%;
+        width: 300%;
+    }
+    to {
+        margin-left: 10%;
+        width: 100%;
     }
 }
