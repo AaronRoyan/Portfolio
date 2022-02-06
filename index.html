@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -17,7 +18,7 @@
 <body>
     <div class="overall-container">
         <div class="nav-container">
-            <header>
+            <header class="header">
                 <a href="./index.html" class="logo">
                     <svg xmlns="http://www.w3.org/2000/svg" width="226" height="55" viewBox="0 0 226 55">
                 <g  id="Component_1_1" data-name="Component 1 – 1" transform="translate(0 7)">
@@ -64,6 +65,7 @@
                 </div>
             </header>
 
+
             <div class="social-header">
                 <ul style="z-index: 1;">
                     <li>
@@ -77,6 +79,7 @@
                     </li>
                 </ul>
             </div>
+
         </div>
 
         <div class="hero">
@@ -134,7 +137,7 @@
 
         <section class="featured">
             <div class="left">
-                <div class="inner transition2">
+                <div class="inner leftleft">
                     <p class="subtitle aboutMe">About Me</p>
                     <p class="featured-title yoyo1">A little Something about myself</p>
                     <p class="featured-desc yoyo"><b><i>Hey! I am Aaron, a</i></b> twenty-one year old <b><i>programmer, digital artist and much more. Currently based in <b class="india">India</b></i>
@@ -159,21 +162,21 @@
         <section class="skills ">
             <div class="skills-container ">
                 <ul>
-                    <li class="transition2 ">
+                    <li class="uptop ">
                         <div class="icon-container one ">
                             <img src="images/game-development.png " alt="Game Controller ">
                         </div>
                         <p class="skills-title ">Game Developer</p>
                         <p class="featured-desc skill-desc ">- Unity <br><br>- Python <br><br>- C++</p>
                     </li>
-                    <li class="transition2 ">
+                    <li class="uptop ">
                         <div class="icon-container two ">
                             <img src="images/coding.png " alt="Terminal ">
                         </div>
                         <p class="skills-title ">Programmer</p>
                         <p class="featured-desc skill-desc ">- C -Java -html/scss<br><br>-C#-Python -JS<br><br>-C++ -PHP etc.</p>
                     </li>
-                    <li class="transition2 ">
+                    <li class="uptop ">
                         <div class="icon-container three ">
                             <img src="images/graphic-designer.png " alt="Digital Artist ">
                         </div>
@@ -194,7 +197,7 @@
                     </div>
                 </div>
                 <a href="# ">
-                    <img class="project-imagesb" src="/images/space1.png" alt="Mars Invaders">
+                    <img class="project-images" src="/images/space1.png" alt="Mars Invaders">
                 </a>
             </div> <br>
             <!-- Ermutigen -->
@@ -206,7 +209,7 @@
                     </div>
                 </div>
                 <a href="# ">
-                    <img class="project-imagesc" src="images/discord.png " alt=" ">
+                    <img class="project-images" src="images/discord.png " alt=" ">
                 </a>
             </div> <br>
             <!-- Neerathon -->
@@ -344,12 +347,7 @@
             duration: 1,
             ease: Power4.easeOut
         })
-        tl.from('.right-img', {
-            y: '500',
-            opacity: 0,
-            duration: 1,
-            ease: Power4.easeOut
-        })
+
         gsap.from('.hero-anim', {
             stagger: .2,
             scale: 0.1,
@@ -358,34 +356,64 @@
             ease: Sine.easeOut,
             y: '-500'
         })
-        gsap.from('.transition2', {
+
+        tl.from('.transition2', {
             ScrollTrigger: {
                 trigger: '.transition2',
                 start: 'top bottom',
-                marker: true,
-                toggleActions: "restart pause resume pause",
-                scrub: true
             },
             y: 50,
             opacity: 0,
-            ease: Sine.easeOut,
-            duration: 1.2,
+            duration: 1,
+            ease: Power4.easeOut,
             stagger: .3
         })
-        gsap.from('.portfolio', {
-            ScrollTrigger: {
-                trigger: '.portfolio',
-                start: 'center bottom',
-                marker: true,
-                toggleActions: "restart pause resume pause",
-                scrub: true
+        gsap.from(".uptop", {
+            scrollTrigger: {
+                trigger: ".uptop",
+                start: "top center"
             },
-            y: -50,
             opacity: 0,
-            duration: 1.2,
-            ease: Sine.easeOut,
-            stagger: .3
+            y: -100
+        });
+        gsap.from(".leftleft", {
+            scrollTrigger: {
+                trigger: ".leftleft",
+                start: "top center"
+            },
+            opacity: 0,
+            x: -100
         })
+
+        gsap.from(".inner-left", {
+            scrollTrigger: {
+                trigger: ".inner-left",
+                start: "top center"
+            },
+            opacity: 0,
+            x: -100
+        })
+        gsap.from(".project-images", {
+            scrollTrigger: {
+                trigger: ".project-images",
+                start: "top center"
+            },
+            opacity: 0,
+            ease: Sine.easeIn,
+            duration: 1,
+            x: 500
+        })
+        gsap.from(".footer-ele1", {
+            scrollTrigger: {
+                trigger: ".footer-ele1",
+                start: "top bottom"
+            },
+            opacity: 0,
+            ease: Sine.easeIn,
+            duration: 1,
+            y: 500
+        })
+
         var typed = new Typed('.element', {
             strings: ['Student by day, Programmer by Night !^2000', 'Student by day, Digital Artist by Night ! ^2000', 'Student by day, Game Developer by Night ! ^2000'],
             smartBackspace: true, // Default value,
@@ -408,6 +436,12 @@
             attr: null,
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js" integrity="sha512-5efjkDjhldlK+BrHauVYJpbjKrtNemLZksZWxd6Wdxvm06dceqWGLLNjZywOkvW7BF032ktHRMUOarbK9d60bg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 </body>
 
 </html>
