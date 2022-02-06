@@ -16,6 +16,9 @@
 </head>
 
 <body>
+    <div id="preloader">
+        <img src="images/loader.gif" alt="">
+    </div>
     <div class="overall-container">
         <div class="nav-container">
             <header class="header">
@@ -30,44 +33,24 @@
               </svg>
                 </a>
                 <nav class="aboutwork">
-                    <ul style="z-index: 1;">
+                    <ul style="z-index: 1; justify-content: space-between;">
 
-                        <li class="nav-stagger"><a href="./about.html">About</a></li>
+                        <li class="nav-stagger"><a href="./aboutme.html" target="_blank" id="aboutmeme">About</a></li>
 
 
-                        <li class="nav-stagger"> <a href="./work.html">My Work</a></li>
+                        <li class="nav-stagger"> <a href="https://github.com/AaronRoyan">My Work</a></li>
 
 
                         <li class="nav-stagger"><a href="./contact.html">Contact</a></li>
 
                     </ul>
                 </nav>
-                <!--    Hamburger Menu       -->
-                <div id="menuToggle">
-                    <input type="checkbox" />
-                    <span></span>
-                    <span></span>
-                    <span></span>
 
-                    <ul id="menu">
-                        <a href="#">
-                            <li>About</li>
-                        </a>
-                        <a href="#">
-                            <li>My Work</li>
-                        </a>
-
-                        <a href="./contact.html">
-                            <li>Contact</li>
-                        </a>
-
-                    </ul>
-                </div>
             </header>
 
 
             <div class="social-header">
-                <ul style="z-index: 1;">
+                <ul style="z-index: 1; justify-content: space-between;">
                     <li>
                         <a href="https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/"><img class="social-stagger" src="./images/linkedin-logo.png" alt="Linkedln"></a>
                     </li>
@@ -75,7 +58,7 @@
                         <a href="https://github.com/AaronRoyan"><img class="social-stagger" src="./images/github-sign.png" alt="GitHub"></a>
                     </li>
                     <li>
-                        <a href="#"><img class="social-stagger" src="./images/instagram.png" alt="instagram"></a>
+                        <a href="https://www.instagram.com/adjroyan/"><img class="social-stagger" src="./images/instagram.png" alt="instagram"></a>
                     </li>
                 </ul>
             </div>
@@ -112,7 +95,7 @@
             <rect class="hero-anim" id="Rectangle_10" data-name="Rectangle 10" width="188" height="171" rx="85.5" transform="translate(319 127)" fill="#910130"/>
             <rect class="hero-anim" id="Rectangle_5" data-name="Rectangle 5" width="213" height="213" rx="31" transform="translate(213 223)" fill="#fff"/>
             <rect class="hero-anim" id="Rectangle_8" data-name="Rectangle 8" width="213" height="213" rx="31" transform="translate(0 456)" fill="#ab0239"/>
-            <rect class="hero-anim" id="Rectangle_9" data-name="Rectangle 9" width="213" height="213" rx="31" transform="translate(76 335)" fill="#910130"/>
+            <rect class="hero-anim " id="Rectangle_9" data-name="Rectangle 9" width="213" height="213" rx="31" transform="translate(76 335) rotate(0)" fill="#910130"/>
             <path class="hero-anim Path_3" data-name="Path 3" d="M1817.926,1011.184l-50.488,50.488h50.488Z" transform="translate(2239.729 1762.355) rotate(180)" fill="#80002a"/>
             <rect class="hero-anim" id="Rectangle_15" data-name="Rectangle 15" width="140" height="132" rx="66" transform="translate(532 390)" fill="#80002a"/>
             <rect class="hero-anim" id="Rectangle_16" data-name="Rectangle 16" width="140" height="132" transform="translate(532 135)" fill="#80002a"/>
@@ -137,25 +120,30 @@
 
         <section class="featured">
             <div class="left">
-                <div class="inner leftleft">
+                <div class="inner leftleft" id="left">
                     <p class="subtitle aboutMe">About Me</p>
                     <p class="featured-title yoyo1">A little Something about myself</p>
-                    <p class="featured-desc yoyo"><b><i>Hey! I am Aaron, a</i></b> twenty-one year old <b><i>programmer, digital artist and much more. Currently based in <b class="india">India</b></i>
+                    <p class="featured-desc yoyo"><b><i>Hey! I am Aaron, a</i></b> twenty-one year old <b><i>programmer, <a href="https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/10472999262761948105099568007545247299019903745245840021551445413719026171905" style="color: maroon; text-decoration: underline;"> digital artist</a> and much more. Currently based in <b class="india">India</b></i>
                         </b>
                     </p>
                 </div>
             </div>
             <div class="photo-box">
                 <ul>
-                    <li><img class="right_img transition2 " src="images/left.png " alt="About Me "></li>
-                    <li><img class="right_img transition2 " src="images/ncenter.png " alt="About Me "></li>
-                    <li><img class="right_img transition2 " src="images/right.png " alt="About Me "></li>
+                    <li>
+                        <a href="https://www.instagram.com/adjroyan/"><img class="right_img transition2 " src="images/left.png " alt="About Me "></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/adjroyan/"> <img class="right_img transition2 " src="images/ncenter.png " alt="About Me "></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/adjroyan/"> <img class="right_img transition2 " src="images/right.png " alt="About Me "></a>
+                    </li>
 
                 </ul>
             </div>
             <div class="ye">
-                <img class="right_img transition2 " src="images/full.png " alt="About Me ">
-
+                <a href="https://www.instagram.com/adjroyan/"><img class="right_img transition2 " src="images/full.png " alt="About Me "></a>
             </div>
         </section>
 
@@ -196,7 +184,7 @@
                         <p class="featured-desc "><i>Created a game in python using the 'pygame' module. This game was inspired by the 1978 Space Invaders Arcade Game</i></p> <br>
                     </div>
                 </div>
-                <a href="# ">
+                <a href="https://github.com/AaronRoyan/Space-Invaders">
                     <img class="project-images" src="/images/space1.png" alt="Mars Invaders">
                 </a>
             </div> <br>
@@ -208,7 +196,7 @@
                         <p class="featured-desc "><i>Ermutigen is a discord bot that encourages users and says/types some supportive and encouraging messages. Ermutigen is the German word for encourage.</i></p> <br>
                     </div>
                 </div>
-                <a href="# ">
+                <a href="https://github.com/AaronRoyan/Ermutigen---Discord-Bot">
                     <img class="project-images" src="images/discord.png " alt=" ">
                 </a>
             </div> <br>
@@ -222,7 +210,7 @@
                         <br>
                     </div>
                 </div>
-                <a href="# ">
+                <a href="https://github.com/AaronRoyan/Neerathon">
                     <img class="project-images" src="images/runner.png " alt="Runne ">
                 </a>
             </div> <br>
@@ -235,7 +223,7 @@
                         <p class="featured-desc "><i>A motorcycle video game made from c++ using SDL(Simple DirectMedia Layer) that is a language used to describe real-time systems which I used to create the game.</i></p> <br>
                     </div>
                 </div>
-                <a href="# "><img class="project-images" src="images/bike3.jpg.png " alt=" ">
+                <a href="https://github.com/AaronRoyan/Bike-Grill"><img class="project-images" src="images/bike3.jpg.png " alt=" ">
                 </a>
             </div>
         </section>
@@ -271,24 +259,33 @@
           </svg>
         </footer>
         <footer class="footer-ele2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="794" height="235" viewBox="0 0 794 235">
-            <g id="Rectangle_21" data-name="Rectangle 21" transform="translate(0 63)" fill="#720126"  stroke-width="1">
-              <rect class="redMain" width="592" height="172" stroke="none"/>
-              
-            </g>
-            <text class="redtxt" id="Want_to_Discuss_a_" data-name="Want to Discuss a " transform="translate(27)" fill="#720126" style="font-size:8vw;" font-family="Playfair Display" font-weight="700"><tspan x="50" y="51">Want to Discuss a </tspan></text>
-            <text class="redtxt" id="_new_Project_" data-name=" new Project?" transform="translate(62 63)" fill="#fff" style="font-size:8vw;" font-family="Playfair Display" font-weight="700"><tspan x="70" y="51" xml:space="preserve"> new Project?</tspan></text>
-            <g id="Rectangle_22" data-name="Rectangle 22" transform="translate(76 143)" fill="#fff" stroke="#707070" stroke-width="1">
-              <rect width="276" height="77" rx="38.5" <tspan x="110" y="0" xml:space="preserve"></tspan> stroke="none"/>
-              
-            </g>
-            <a href="mailto:aaron.dom.royan@gmail.com">
-            <text id="Send_me_a_E-mail" data-name="Send me a E-mail" transform="translate(97 160)" fill="#720126" stroke="#000" stroke-width="2" font-size="29" font-family="MyanmarText-Bold, Myanmar Text" font-weight="700"><tspan x="110" y="31">Send me a E-mail</tspan></text>
-          </a>
-        </svg>
+            <div class="drop-shadow">
+                <div class="glass"></div>
+                <ul>
+                    <a href="#">
+                        <img src="./images/briefcase-fill.svg" alt="reload">
+                        <li>Work</li>
+                    </a>
+                    <a href="./images/Aaron Royan Resume.pdf" download rel="noopener noreferrer" target="_blank">
+                        <img src="./images/body-text.svg" alt="reload">
+                        <li>Resume</li>
+                    </a>
+                    <a href="./contact.html">
+                        <img src="./images/journal-text.svg" alt="">
+                        <li>Contact</li>
+                    </a>
+                </ul>
+            </div>
         </footer>
     </div>
     <script>
+        //loader
+        var loader = document.getElementById("preloader");
+
+        window.addEventListener("load", function() {
+            loader.style.display = "none";
+        })
+
         //Scroll
         window.addEventListener('scroll', function() {
             let header = document.querySelector('.nav-container');
@@ -302,117 +299,122 @@
             header.classList.toggle('scrolling-active-social', windowPosition);
         })
 
-
-        gsap.registerPlugin(ScrollTrigger);
-        var tl = gsap.timeline();
-        tl.from('header', 1.2, {
-            x: '-100',
-            opacity: 0,
-            duration: 1.4,
-            ease: Power4.easeOut
-        })
-        tl.from('.content', 1.2, {
-            x: '-100',
-            opacity: 0,
-            duration: 1.4,
-            ease: Power4.easeOut
-        })
-
-        tl.from('.social-stagger', {
-            x: '-30%',
-            opacity: 0,
-            stagger: .3,
-            duration: 1,
-            ease: Power4.easeOut
-        })
-        tl.from('.nav-stagger', {
-            x: '30%',
-            opacity: 0,
-            stagger: .3,
-            duration: 1,
-            ease: Power4.easeOut
-        }, '-=.5')
-
-        tl.from('.stagger1', {
-            opacity: 0,
-            y: -50,
-            stagger: .3,
-            duration: 2,
-            ease: Power4.easeOut
-        }, '-=1')
-
-        tl.from('.hero-design', {
-            y: '-50',
-            opacity: 0,
-            duration: 1,
-            ease: Power4.easeOut
-        })
-
-        gsap.from('.hero-anim', {
-            stagger: .2,
-            scale: 0.1,
-            opacity: 0,
-            duration: 1,
-            ease: Sine.easeOut,
-            y: '-500'
-        })
-
-        tl.from('.transition2', {
-            ScrollTrigger: {
-                trigger: '.transition2',
-                start: 'top bottom',
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: Power4.easeOut,
-            stagger: .3
-        })
-        gsap.from(".uptop", {
-            scrollTrigger: {
-                trigger: ".uptop",
-                start: "top center"
-            },
-            opacity: 0,
-            y: -100
+        $("#aboutmeme").click(function() {
+            $('html, body').animate({
+                scrollTop: $("#left").offset().top
+            }, 500);
         });
-        gsap.from(".leftleft", {
-            scrollTrigger: {
-                trigger: ".leftleft",
-                start: "top center"
-            },
-            opacity: 0,
-            x: -100
-        })
 
-        gsap.from(".inner-left", {
-            scrollTrigger: {
-                trigger: ".inner-left",
-                start: "top center"
-            },
-            opacity: 0,
-            x: -100
-        })
-        gsap.from(".project-images", {
-            scrollTrigger: {
-                trigger: ".project-images",
-                start: "top center"
-            },
-            opacity: 0,
-            ease: Sine.easeIn,
-            duration: 1,
-            x: 500
-        })
-        gsap.from(".footer-ele1", {
-            scrollTrigger: {
-                trigger: ".footer-ele1",
-                start: "top bottom"
-            },
-            opacity: 0,
-            ease: Sine.easeIn,
-            duration: 1,
-            y: 500
-        })
+        // gsap.registerPlugin(ScrollTrigger);
+        // var tl = gsap.timeline();
+        // tl.from('header', 1.2, {
+        //     x: '-100',
+        //     opacity: 0,
+        //     duration: 1.4,
+        //     ease: Power4.easeOut
+        // })
+        // tl.from('.content', 1.2, {
+        //     x: '-100',
+        //     opacity: 0,
+        //     duration: 1.4,
+        //     ease: Power4.easeOut
+        // })
+
+        // tl.from('.social-stagger', {
+        //     x: '-30%',
+        //     opacity: 0,
+        //     stagger: .3,
+        //     duration: 1,
+        //     ease: Power4.easeOut
+        // })
+        // tl.from('.nav-stagger', {
+        //     x: '30%',
+        //     opacity: 0,
+        //     stagger: .3,
+        //     duration: 1,
+        //     ease: Power4.easeOut
+        // }, '-=.5')
+
+        // tl.from('.stagger1', {
+        //     opacity: 0,
+        //     y: -50,
+        //     stagger: .3,
+        //     duration: 2,
+        //     ease: Power4.easeOut
+        // }, '-=1')
+
+        // tl.from('.hero-design', {
+        //     y: '-50',
+        //     opacity: 0,
+        //     duration: 1,
+        //     ease: Power4.easeOut
+        // })
+
+        // gsap.from('.hero-anim', {
+        //     stagger: .2,
+        //     scale: 0.1,
+        //     opacity: 0,
+        //     duration: 1,
+        //     ease: Sine.easeOut,
+        //     y: '-500'
+        // })
+
+        // tl.from('.transition2', {
+        //     ScrollTrigger: {
+        //         trigger: '.transition2',
+        //         start: 'top bottom',
+        //     },
+        //     y: 50,
+        //     opacity: 0,
+        //     duration: 1,
+        //     ease: Power4.easeOut,
+        //     stagger: .3
+        // })
+        // gsap.from(".uptop", {
+        //     scrollTrigger: {
+        //         trigger: ".uptop",
+        //         start: "top center"
+        //     },
+        //     opacity: 0,
+        //     y: -100
+        // });
+        // gsap.from(".leftleft", {
+        //     scrollTrigger: {
+        //         trigger: ".leftleft",
+        //         start: "top center"
+        //     },
+        //     opacity: 0,
+        //     x: -100
+        // })
+
+        // gsap.from(".inner-left", {
+        //     scrollTrigger: {
+        //         trigger: ".inner-left",
+        //         start: "top center"
+        //     },
+        //     opacity: 0,
+        //     x: -100
+        // })
+        // gsap.from(".project-images", {
+        //     scrollTrigger: {
+        //         trigger: ".project-images",
+        //         start: "top center"
+        //     },
+        //     opacity: 0,
+        //     ease: Sine.easeIn,
+        //     duration: 1,
+        //     x: 500
+        // })
+        // gsap.from(".footer-ele1", {
+        //     scrollTrigger: {
+        //         trigger: ".footer-ele1",
+        //         start: "top bottom"
+        //     },
+        //     opacity: 0,
+        //     ease: Sine.easeIn,
+        //     duration: 1,
+        //     y: 500
+        // })
 
         var typed = new Typed('.element', {
             strings: ['Student by day, Programmer by Night !^2000', 'Student by day, Digital Artist by Night ! ^2000', 'Student by day, Game Developer by Night ! ^2000'],
