@@ -311,11 +311,7 @@
             header.classList.toggle('scrolling-active-social', windowPosition);
         });
 
-        $("#aboutmeme").click(function() {
-            $('html, body').animate({
-                scrollTop: $("#left").offset().top
-            }, 500);
-        });
+
 
         gsap.registerPlugin(ScrollTrigger);
         var tl = gsap.timeline();
