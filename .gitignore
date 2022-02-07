@@ -1,1 +1,6 @@
 .vercel
+node_modules/gsap/src
+node_modules/gsap/utils
+node_modules/gsap/other
+node_modules/gsap/dist/notUsing
+gsap-bonus.tgz
