@@ -283,42 +283,33 @@
             let header = document.querySelector('.nav-container');
             let windowPosition = window.scrollY > 0;
             header.classList.toggle('scrolling-active-header', windowPosition);
-        })
+        });
 
         window.addEventListener('scroll', function() {
             let header = document.querySelector('.social-header');
             let windowPosition = window.scrollY > 0;
             header.classList.toggle('scrolling-active-social', windowPosition);
-        })
-        window.addEventListener('scroll', function() {
-            let header = document.querySelector('.white');
-            let windowPosition = window.scrollY > 0;
-            header.classList.toggle('scrolling-active-white', windowPosition);
-        })
-        window.addEventListener('scroll', function() {
-                let header = document.querySelector('.black');
-                let windowPosition = window.scrollY > 0;
-                header.classList.toggle('scrolling-active-black', windowPosition);
-            })
-            //loader
+        });
+
+        //loader
         var loader = document.getElementById("preloader");
 
         window.addEventListener("load", function() {
             loader.style.display = "none";
-        })
+        });
 
         //Scroll
         window.addEventListener('scroll', function() {
             let header = document.querySelector('.nav-container');
             let windowPosition = window.scrollY > 0;
             header.classList.toggle('scrolling-active-header', windowPosition);
-        })
+        });
 
         window.addEventListener('scroll', function() {
             let header = document.querySelector('.social-header');
             let windowPosition = window.scrollY > 0;
             header.classList.toggle('scrolling-active-social', windowPosition);
-        })
+        });
 
         $("#aboutmeme").click(function() {
             $('html, body').animate({
@@ -333,13 +324,13 @@
             opacity: 0,
             duration: 1.4,
             ease: Power4.easeOut
-        })
+        });
         tl.from('.content', 1.2, {
             x: '-100',
             opacity: 0,
             duration: 1.4,
             ease: Power4.easeOut
-        })
+        });
 
         tl.from('.social-stagger', {
             x: '-30%',
@@ -369,7 +360,7 @@
             opacity: 0,
             duration: 1,
             ease: Power4.easeOut
-        })
+        });
 
         gsap.from('.hero-anim', {
             stagger: .2,
@@ -378,7 +369,7 @@
             duration: 1,
             ease: Sine.easeOut,
             y: '-500'
-        })
+        });
 
         tl.from('.transition2', {
             ScrollTrigger: {
@@ -390,7 +381,7 @@
             duration: 1,
             ease: Power4.easeOut,
             stagger: .3
-        })
+        });
         gsap.from(".uptop", {
             scrollTrigger: {
                 trigger: ".uptop",
@@ -406,7 +397,7 @@
             },
             opacity: 0,
             x: -100
-        })
+        });
 
         gsap.from(".inner-left", {
             scrollTrigger: {
@@ -415,7 +406,7 @@
             },
             opacity: 0,
             x: -100
-        })
+        });
         gsap.from(".project-images", {
             scrollTrigger: {
                 trigger: ".project-images",
@@ -425,7 +416,7 @@
             ease: Sine.easeIn,
             duration: 1,
             x: 500
-        })
+        });
         gsap.from(".footer-ele1", {
             scrollTrigger: {
                 trigger: ".footer-ele1",
@@ -435,7 +426,7 @@
             ease: Sine.easeIn,
             duration: 1,
             y: 500
-        })
+        });
 
         var typed = new Typed('.element', {
             strings: ['Student by day, Programmer by Night !^2000', 'Student by day, Digital Artist by Night ! ^2000', 'Student by day, Game Developer by Night ! ^2000'],
@@ -458,42 +449,7 @@
             // attribute to type (null == text)
             attr: null,
         });
-        import {
-            gsap,
-            Power0,
-            Power1,
-            Power2,
-            Power3,
-            Power4,
-            Linear,
-            Quad,
-            Cubic,
-            Quart,
-            Quint,
-            Strong,
-            Elastic,
-            Back,
-            SteppedEase,
-            Bounce,
-            Sine,
-            Expo,
-            Circ,
-            TweenLite,
-            TimelineLite,
-            TimelineMax
-        } from "./gsap-core.js";
-        import {
-            CSSPlugin
-        } from "./CSSPlugin.js";
-        var gsapWithCSS = gsap.registerPlugin(CSSPlugin) || gsap,
-            // to protect from tree shaking
-            TweenMaxWithCSS = gsapWithCSS.core.Tween;
-        export {
-            gsapWithCSS as gsap, gsapWithCSS as
-            default, CSSPlugin, TweenMaxWithCSS as TweenMax, TweenLite, TimelineMax, TimelineLite, Power0, Power1, Power2, Power3, Power4, Linear, Quad, Cubic, Quart, Quint, Strong, Elastic, Back, SteppedEase, Bounce, Sine, Expo, Circ
-        };
     </script>
-    <script src="./script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="node_modules/gsap/dist/gsap.min.js"></script>
