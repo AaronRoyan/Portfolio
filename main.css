@@ -384,12 +384,6 @@ section {
 }
 
 @media only screen and (max-width: 520px) {
-  .featured::before {
-    padding: 9em 0;
-    overflow: hidden;
-    width: 250px;
-    height: 20px;
-  }
   .logo text {
     width: 100%;
   }
@@ -483,8 +477,6 @@ section {
   }
   .scrolling-active-header {
     background-color: rgba(189, 32, 79, 0.9);
-    -webkit-backdrop-filter: blur(2rem);
-            backdrop-filter: blur(2rem);
     font-size: 1.2em;
     padding: 1em 3em 0 2em;
     -webkit-transition: ease .3s;
