@@ -1327,4 +1327,23 @@ section {
   max-width: 1350px;
   margin: 0 auto;
 }
+
+.footer-social:hover {
+  -webkit-animation: supper 1s infinite slidein;
+          animation: supper 1s infinite slidein;
+}
+
+@-webkit-keyframes supper {
+  to {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
+
+@keyframes supper {
+  to {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+}
 /*# sourceMappingURL=main.css.map */

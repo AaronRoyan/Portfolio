@@ -1091,3 +1091,13 @@ section {
     max-width: 1350px;
     margin: 0 auto;
 }
+
+.footer-social:hover {
+    animation: supper 1s infinite slidein;
+}
+
+@keyframes supper {
+    to {
+        transform: scale(1.1);
+    }
+}
