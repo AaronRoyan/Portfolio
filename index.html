@@ -11,13 +11,16 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="node_modules/gsap/dist/gsap.min.js"></script>
     <script src="node_modules/gsap/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Aaron Portfolio</title>
+
 </head>
 
 <body>
     <div id="preloader">
-        <img src="images/loader.gif" alt="">
+        <p class="info">* Hold Mouse or Finger on ribbon to finish loading action.</p>
+        <div id="wrap"></div>
     </div>
     <div class="overall-container">
         <div class="nav-container">
@@ -223,7 +226,8 @@
                         <p class="featured-desc "><i>A motorcycle video game made from c++ using SDL(Simple DirectMedia Layer) that is a language used to describe real-time systems which I used to create the game.</i></p> <br>
                     </div>
                 </div>
-                <a href="https://github.com/AaronRoyan/Bike-Grill"><img class="project-images" src="images/bike3.jpg.png " alt=" ">
+                <a href="https://github.com/AaronRoyan/Bike-Grill">
+                    <img class="project-images" src="images/bike3.jpg.png " alt=" ">
                 </a>
             </div>
         </section>
@@ -292,10 +296,11 @@
         });
 
         //loader
-        var loader = document.getElementById("preloader");
 
         window.addEventListener("load", function() {
+            var loader = document.getElementById("preloader");
             loader.style.display = "none";
+            loader.classList.add("preload-finish");
         });
 
         //Scroll
@@ -445,6 +450,156 @@
             // attribute to type (null == text)
             attr: null,
         });
+        // pre-loader
+        var $body = document.body,
+            $wrap = document.getElementById('wrap'),
+
+            areawidth = window.innerWidth,
+            areaheight = window.innerHeight,
+
+            canvassize = 650,
+
+            length = 30,
+            radius = 5.6,
+
+            rotatevalue = 0.035,
+            acceleration = 0,
+            animatestep = 0,
+            toend = false,
+
+            pi2 = Math.PI * 2,
+
+            group = new THREE.Group(),
+            mesh, ringcover, ring,
+
+            camera, scene, renderer;
+
+
+        camera = new THREE.PerspectiveCamera(65, 1, 1, 10000);
+        camera.position.z = 150;
+
+        scene = new THREE.Scene();
+        // scene.add(new THREE.AxisHelper(30));
+        scene.add(group);
+
+        mesh = new THREE.Mesh(
+            new THREE.TubeGeometry(new(THREE.Curve.create(function() {},
+                function(percent) {
+
+                    var x = length * Math.sin(pi2 * percent),
+                        y = radius * Math.cos(pi2 * 3 * percent),
+                        z, t;
+
+                    t = percent % 0.25 / 0.25;
+                    t = percent % 0.25 - (2 * (1 - t) * t * -0.0185 + t * t * 0.25);
+                    if (Math.floor(percent / 0.25) == 0 || Math.floor(percent / 0.25) == 2) {
+                        t *= -1;
+                    }
+                    z = radius * Math.sin(pi2 * 2 * (percent - t));
+
+                    return new THREE.Vector3(x, y, z);
+
+                }
+            ))(), 200, 1.1, 2, true),
+            new THREE.MeshBasicMaterial({
+                color: 0x720126
+                    // , wireframe: true
+            })
+        );
+        group.add(mesh);
+
+        ringcover = new THREE.Mesh(new THREE.PlaneGeometry(50, 15, 1), new THREE.MeshBasicMaterial({
+            color: 0xffffff,
+            opacity: 0,
+            transparent: true
+        }));
+        ringcover.position.x = length + 1;
+        ringcover.rotation.y = Math.PI / 2;
+        group.add(ringcover);
+
+        ring = new THREE.Mesh(new THREE.RingGeometry(4.3, 5.55, 32), new THREE.MeshBasicMaterial({
+            color: 0x720126,
+            opacity: 0,
+            transparent: true
+        }));
+        ring.position.x = length + 1.1;
+        ring.rotation.y = Math.PI / 2;
+        group.add(ring);
+
+        // fake shadow
+        (function() {
+            var plain, i;
+            for (i = 0; i < 10; i++) {
+                plain = new THREE.Mesh(new THREE.PlaneGeometry(length * 2 + 1, radius * 3, 1), new THREE.MeshBasicMaterial({
+                    color: 0xffffff,
+                    transparent: true,
+                    opacity: 0.13
+                }));
+                plain.position.z = -2.5 + i * 0.5;
+                group.add(plain);
+            }
+        })();
+
+        renderer = new THREE.WebGLRenderer({
+            antialias: true
+        });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(canvassize, canvassize);
+        renderer.setClearColor('#ffffff');
+
+        $wrap.appendChild(renderer.domElement);
+
+        $body.addEventListener('mousedown', start, false);
+        $body.addEventListener('touchstart', start, false);
+        $body.addEventListener('mouseup', back, false);
+        $body.addEventListener('touchend', back, false);
+
+        animate();
+
+
+        function start() {
+            toend = true;
+        }
+
+        function back() {
+            toend = false;
+        }
+
+        function tilt(percent) {
+            group.rotation.y = percent * 0.5;
+        }
+
+        function render() {
+
+            var progress;
+
+            animatestep = Math.max(0, Math.min(240, toend ? animatestep + 1 : animatestep - 4));
+            acceleration = easing(animatestep, 0, 1, 240);
+
+            if (acceleration > 0.35) {
+                progress = (acceleration - 0.35) / 0.65;
+                group.rotation.y = -Math.PI / 2 * progress;
+                group.position.z = 50 * progress;
+                progress = Math.max(0, (acceleration - 0.97) / 0.03);
+                mesh.material.opacity = 1 - progress;
+                ringcover.material.opacity = ring.material.opacity = progress;
+                ring.scale.x = ring.scale.y = 0.9 + 0.1 * progress;
+            }
+
+            renderer.render(scene, camera);
+
+        }
+
+        function animate() {
+            mesh.rotation.x += rotatevalue + acceleration;
+            render();
+            requestAnimationFrame(animate);
+        }
+
+        function easing(t, b, c, d) {
+            if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+            return c / 2 * ((t -= 2) * t * t + 2) + b;
+        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -9,18 +9,61 @@ body {
     overflow-x: hidden;
 }
 
+#wrap {
+    position: absolute;
+    left: 0;
+    right: 0;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+#wrap canvas {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 500px;
+    height: 500px;
+    margin: -250px 0 0 -250px;
+    -outline: 1px solid #ffffff;
+}
+
+.info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    color: #720126;
+    line-height: 2em;
+    text-align: center;
+}
+
 #preloader {
+    position: fixed;
+    z-index: 10;
     background-size: 100%;
-    background-color: white;
+    background-color: #ffffff;
+    overflow: hidden;
+    top: 0;
     right: 0;
     height: 100vh;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     img {
         bottom: 0;
         right: 0;
         position: fixed;
         z-index: 20;
     }
+}
+
+.preload-finish {
+    opacity: 0;
+    pointer-events: none;
 }
 
 #menuToggle {
@@ -385,6 +428,11 @@ section {
         overflow: hidden;
         width: 250px;
         height: 20px;
+    }
+    .portfolio {
+        .project-images {
+            overflow: hidden;
+        }
     }
     .logo {
         text {
