@@ -753,7 +753,7 @@ section {
     padding-right: 1em;
   }
   .social-header ul img:hover {
-    width: 30px;
+    width: 25px;
     -webkit-transition: .3 ease;
     transition: .3 ease;
   }

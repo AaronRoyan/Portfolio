@@ -426,7 +426,7 @@
             duration: 1,
             y: 500
         });
-        let h1 = document.querySelector(".footer-social", ".linkedn-logo", ".github-sign"),
+        let h1 = document.querySelector(".footer-social"),
             hover = gsap.to(h1, {
                 scale: 1.12,
                 duration: 0.3,
@@ -436,6 +436,8 @@
 
         h1.addEventListener("mouseenter", () => hover.play());
         h1.addEventListener("mouseleave", () => hover.reverse());
+
+
 
         var typed = new Typed('.element', {
             strings: ['Student by day, Programmer by Night !^2000', 'Student by day, Digital Artist by Night ! ^2000', 'Student by day, Game Developer by Night ! ^2000'],
