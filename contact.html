@@ -15,45 +15,67 @@
 
 <body>
     <div>
-        <h1 class="linear-wipe">
-            <span id="span1">K</span>
-            <span id="span2">O</span>
-            <span id="span4">N</span>
-            <span id="span3">T</span>
-            <span id="span5">A</span>
-            <span id="span6">K</span>
-            <span id="span6">T</span>
-            <span id="span6">I</span>
-            <span id="span7">E</span>
-            <span id="span8">R</span>
-            <span id="span7">E</span>
-        </h1>
+        <h1 id="h">kontaktiere</h1>
     </div>
     <div class="icons">
         <ul>
-            <a href="https://github.com/AaronRoyan" class="list-item" target="_blank">
+            <a href="https://github.com/AaronRoyan" class="list-item " target="_blank" onmouseover="changeGit()" onmousemove="changeBack()">
                 <li><i class="icon-github"></i> </li>
             </a>
-            <a href="https://www.instagram.com/adjroyan/" class="list-item" target="_blank">
+            <a href="https://www.instagram.com/adjroyan/" class="list-item " target="_blank" onmouseover="changeig()" onmousemove="changeBack()">
                 <li><i class="icon-instagram"></i></li>
             </a>
-            <a href="mailto:aaron.jd.royan@gmail.com" class="list-item" target="_blank">
+            <a href="mailto:aaron.jd.royan@gmail.com" class="list-item " target="_blank" onmouseover="changenv()" onmousemove="changeBack()">
                 <li><i class="icon-envelope"></i></li>
             </a>
-            <a href="9591771829" class="list-item" target="_blank">
-                <li><i class="icon-phone"></i></li>
-            </a>
-            <a href="" class="list-item" target="_blank">
+            <!-- <a href="" class="list-item " onclick="changeGit(this)" onmouseover="changeph()" onmousemove="changeBack()">
+                <li><i class="icon-phone">
+                </i></li>
+            </a> -->
+            <a href="" class="list-item" target="_blank" onmouseover="changedis()" onmousemove="changeBack()">
                 <li><img src="images/discord.svg" alt="Discord"></li>
             </a>
-            <a href="" class="list-item" target="_blank">
+            <a href="" class="list-item" target="_blank" onmouseover="changelin()" onmousemove="changeBack()">
                 <li><img src="images/linkedin.svg"></li>
             </a>
-            <a href="" class="list-item" target="_blank">
+            <a href="" class="list-item" target="_blank" onmouseover="changeopen()" onmousemove="changeBack()">
                 <li><img src="images/Logomark-White.svg"></li>
             </a>
         </ul>
     </div>
+    <script>
+        let header = document.getElementById("h");
+
+        function changeGit() {
+            header.innerHTML = "GitHub";
+        }
+
+        function changeig() {
+            header.innerHTML = "Instagram";
+        }
+
+        function changenv() {
+            header.innerHTML = "E-Mail";
+        }
+        // function changeph() {
+        //     header.innerHTML = "GitHub";
+        // }
+        function changedis() {
+            header.innerHTML = "Discord";
+        }
+
+        function changelin() {
+            header.innerHTML = "Linkedln";
+        }
+
+        function changeopen() {
+            header.innerHTML = "Opensea";
+        }
+
+        function changeBack() {
+            header.innerHTML = "kontaktiere";
+        }
+    </script>
 </body>
 
 </html>

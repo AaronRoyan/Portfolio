@@ -407,6 +407,7 @@ section {
         .right_img {
             display: unset;
             border-radius: .7em;
+            box-shadow: 20px 30px 18px #720126;
         }
     }
     .photo-box {
@@ -590,6 +591,9 @@ section {
         height: 40vh;
         width: 100vh;
         grid-gap: .2em;
+        li {
+            box-shadow: 40px 81px 10px #720126;
+        }
         .right_img {
             display: unset;
             border-radius: .7em;
@@ -621,7 +625,7 @@ section {
             width: 310px;
         }
         img:hover {
-            opacity: .5;
+            opacity: .4;
             cursor: pointer;
         }
     }

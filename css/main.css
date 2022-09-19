@@ -424,6 +424,8 @@ section {
   .ye .right_img {
     display: unset;
     border-radius: .7em;
+    -webkit-box-shadow: 20px 30px 18px #720126;
+            box-shadow: 20px 30px 18px #720126;
   }
   .photo-box .right_img {
     display: none;
@@ -610,6 +612,10 @@ section {
     width: 100vh;
     grid-gap: .2em;
   }
+  .photo-box ul li {
+    -webkit-box-shadow: 40px 81px 10px #720126;
+            box-shadow: 40px 81px 10px #720126;
+  }
   .photo-box ul .right_img {
     display: unset;
     border-radius: .7em;
@@ -634,7 +640,7 @@ section {
     width: 310px;
   }
   .portfolio-container img:hover {
-    opacity: .5;
+    opacity: .4;
     cursor: pointer;
   }
   .featured,
