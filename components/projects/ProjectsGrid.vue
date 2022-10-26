@@ -135,7 +135,7 @@ export default {
             name="name"
             type="search"
             required=""
-            placeholder="Pesquisar projetos"
+            placeholder="Search"
             aria-label="Name"
           />
         </div>

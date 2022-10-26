@@ -9,7 +9,7 @@ export default {
 </script>
 
 <template>
-  <div class="mt-20 sm:mt-20  bg-primary-light dark:bg-ternary-dark shadow-sm   ">
+  <div class="mt-20 sm:mt-20 ">
     <div
       class="
         font-general-regular
@@ -34,6 +34,12 @@ export default {
           ><img
             v-if="this.$colorMode.value == 'dark'"
             src="~/static/conti.svg"
+            width="300px"
+            alt="Developer Dark"/>
+          <img
+            v-if="this.$colorMode.value == 'light'"
+            src="~/static/conti-dark.svg"
+            width="300px"
             alt="Developer Dark"/>
         </span
         >

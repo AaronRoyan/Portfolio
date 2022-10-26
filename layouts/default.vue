@@ -1,6 +1,6 @@
 <template>
   <div
-    class="bg-secondary-light dark:bg-primary-dark min-h-screen flex flex-col"
+    class="bg-secondary-light dark:bg-black min-h-screen flex flex-col"
   >
     <AppHeader />
     <transition name="fade" mode="out-in">
