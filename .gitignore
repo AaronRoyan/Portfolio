@@ -1,3 +1,6 @@
 gsap-bonus.tgz
 node_modules
 dist
+.vercel
+.vs
+.DS_Store
