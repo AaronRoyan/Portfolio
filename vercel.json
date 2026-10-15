@@ -1,0 +1,7 @@
+{
+  "redirects": [
+    { "source": "/aboutme.html", "destination": "/#about", "permanent": true },
+    { "source": "/contact.html", "destination": "/#contact", "permanent": true },
+    { "source": "/trial.html", "destination": "/", "permanent": true }
+  ]
+}

@@ -1,622 +1,589 @@
-<!DOCTYPE html>
-
-<html lang="en">
-
+<!doctype html>
+<!--
+  Aaron Royan — Software Engineer & AI Engineer
+  Plain HTML, CSS and JavaScript. No framework, no build step.
+  Every figure on this page is a small canvas program: see assets/js/figures.js.
+  Say hello: aaron.dom.royan@gmail.com
+-->
+<html lang="en-GB">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="icon" href="images/flower1.svg">
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="node_modules/gsap/dist/gsap.min.js"></script>
-    <script src="node_modules/gsap/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r77/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Aaron Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aaron Royan — Software Engineer &amp; AI Engineer</title>
+  <meta name="description" content="Software engineer in Sheffield building production systems in React and TypeScript — warehouse management, field-team tooling and route optimisation — with an MSc in Artificial Intelligence.">
+  <meta name="author" content="Aaron Royan">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://aaron-portfolio.vercel.app/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aaron Royan">
+  <meta property="og:title" content="Aaron Royan — Software Engineer &amp; AI Engineer">
+  <meta property="og:description" content="Production systems in React &amp; TypeScript, an MSc in AI, and research turning brain signals into fatigue predictions.">
+  <meta property="og:url" content="https://aaron-portfolio.vercel.app/">
+  <meta property="og:image" content="https://aaron-portfolio.vercel.app/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aaron Royan — Software Engineer and AI Engineer">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300..600&family=Instrument+Serif:ital@0;1&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- Enables the intro animation; falls back to a static page if the scripts never arrive. -->
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!window.__ready) document.documentElement.classList.remove('js'); }, 3500);
+  </script>
+  <script src="assets/vendor/gsap.min.js" defer></script>
+  <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="assets/vendor/SplitText.min.js" defer></script>
+  <script src="assets/vendor/lenis.min.js" defer></script>
+  <script src="assets/js/figures.js" defer></script>
+  <script src="assets/js/main.js" defer></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aaron Royan",
+    "jobTitle": "Software Engineer",
+    "url": "https://aaron-portfolio.vercel.app/",
+    "email": "mailto:aaron.dom.royan@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Sheffield", "addressCountry": "GB" },
+    "worksFor": { "@type": "Organization", "name": "A Shade Greener" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Sussex" },
+      { "@type": "CollegeOrUniversity", "name": "St. Joseph's University" }
+    ],
+    "knowsAbout": ["Software engineering", "React", "TypeScript", "Python", "Machine learning", "Kubernetes", "Route optimisation", "EEG signal processing"],
+    "sameAs": ["https://github.com/AaronRoyan", "https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/"]
+  }
+  </script>
 </head>
 
 <body>
-    <div id="preloader">
-        <p class="info">* Hold Mouse or Finger on ribbon to finish loading action.</p>
-        <div id="wrap"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor__dot"></span><span class="cursor__label"></span></div>
+
+  <div class="preview" aria-hidden="true">
+    <canvas class="preview__canvas"></canvas>
+    <p class="preview__cap mono"><span data-preview-label>Fig.</span><span class="live">Live</span></p>
+  </div>
+
+  <!-- ─────────────────────────────── Navigation ─────────────────────────────── -->
+  <header class="nav" data-nav>
+    <a class="nav__brand" href="#top" aria-label="Aaron Royan, back to top">
+      <span class="nav__name">Aaron Royan</span>
+      <span class="nav__role">Software Engineer</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work" data-nav-link="work">Work</a>
+      <a href="#experience" data-nav-link="experience">Experience</a>
+      <a href="#about" data-nav-link="about">About</a>
+      <a href="#contact" data-nav-link="contact">Contact</a>
+    </nav>
+    <div class="nav__meta">
+      <span class="nav__clock" title="Local time in Sheffield">Sheffield <time data-clock>--:--</time></span>
+      <a class="nav__cv" href="docs/Aaron-Royan-CV.pdf" target="_blank" rel="noopener">CV <span aria-hidden="true">↗</span></a>
     </div>
-    <div class="overall-container">
-        <div class="nav-container">
-            <header class="header">
-                <a href="./index.html" class="logo">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="226" height="55" viewBox="0 0 226 55">
-                <g  id="Component_1_1" data-name="Component 1 – 1" transform="translate(0 7)">
-                  <text class="black" id="Aaron_Royan" data-name="Aaron Royan" transform="translate(1 39)" font-size="36" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
-                </g>
-                <g class="white" id="Component_1_2" data-name="Component 1 – 2" transform="translate(11)">
-                  <text class="white" id="Aaron_Royan-2" data-name="Aaron Royan" transform="translate(1 39)" fill="#fff" font-size="36" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
-                </g>
-              </svg>
-                </a>
-                <nav class="aboutwork">
-                    <ul style="z-index: 1; justify-content: space-between;">
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+  </header>
 
-                        <li class="nav-stagger"><a href="./aboutme.html" target="_blank" id="aboutmeme">About</a></li>
-
-                        <li class="nav-stagger"><a href="./contact.html">Contact</a></li>
-
-                        <li class="nav-stagger"> <a href="./docs/Aaron Royan - Resume.pdf" download rel="noopener noreferrer" target="_blank">Resumé</a></li>
-
-                    </ul>
-                </nav>
-
-            </header>
-
-
-            <div class="social-header">
-                <ul style="z-index: 1; justify-content: space-between;">
-                    <li>
-                        <a href="https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/"><img class="social-stagger" src="./images/linkedin-logo.png" alt="Linkedln"></a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/AaronRoyan"><img class="social-stagger" src="./images/github-sign.png" alt="GitHub"></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/adjroyan/"><img class="social-stagger" src="./images/instagram.png" alt="instagram"></a>
-                    </li>
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="hero">
-            <div class="content">
-                <h1 class="stagger1"><span class="element"></span></h1>
-                <div class="meet">
-                    <span class="stagger1 emo">👇</span>
-                    <p class="stagger1">Meet Aaron Royan</p>
-                </div>
-                <svg class="scroll stagger1" width="51" height="92" viewBox="0 0 51 92">
-                <g id="Rectangle_3" data-name="Rectangle 3" fill="none" stroke="#fff" stroke-width="6">
-                  <rect width="51" height="92" rx="25.5" stroke="none"/>
-                  <rect x="3" y="3" width="45" height="86" rx="22.5" fill="none"/>
-                </g>
-                <g id="Ellipse_1" data-name="Ellipse 1" transform="translate(11 11)" fill="#fff" stroke="#707070" stroke-width="1">
-                  <circle class="circle"cx="14.5" cy="14.5" r="14.5" stroke="none"/>
-                </g>
-              </svg>
-            </div>
-            <svg class="hero-design" width="965" height="752.454" viewBox="0 0 965 752.454">
-            <defs>
-              <filter id="Line_3" x="328.166" y="44.548" width="338.669" height="336.743" filterUnits="userSpaceOnUse">
-                <feOffset dy="3" input="SourceAlpha"/>
-                <feGaussianBlur stdDeviation="3" result="blur"/>
-                <feFlood flood-color="red" flood-opacity="0.161"/>
-                <feComposite operator="in" in2="blur"/>
-                <feComposite in="SourceGraphic"/>
-              </filter>
-            </defs>
-            <rect class="hero-anim" id="Rectangle_10" data-name="Rectangle 10" width="188" height="171" rx="85.5" transform="translate(319 127)" fill="#910130"/>
-            <rect class="hero-anim" id="Rectangle_5" data-name="Rectangle 5" width="213" height="213" rx="31" transform="translate(213 223)" fill="#fff"/>
-            <rect class="hero-anim" id="Rectangle_8" data-name="Rectangle 8" width="213" height="213" rx="31" transform="translate(0 456)" fill="#ab0239"/>
-            <rect class="hero-anim " id="Rectangle_9" data-name="Rectangle 9" width="213" height="213" rx="31" transform="translate(76 335) rotate(0)" fill="#910130"/>
-            <path class="hero-anim Path_3" data-name="Path 3" d="M1817.926,1011.184l-50.488,50.488h50.488Z" transform="translate(2239.729 1762.355) rotate(180)" fill="#80002a"/>
-            <rect class="hero-anim" id="Rectangle_15" data-name="Rectangle 15" width="140" height="132" rx="66" transform="translate(532 390)" fill="#80002a"/>
-            <rect class="hero-anim" id="Rectangle_16" data-name="Rectangle 16" width="140" height="132" transform="translate(532 135)" fill="#80002a"/>
-            <rect class="hero-anim" id="Rectangle_4" data-name="Rectangle 4" width="213" height="213" rx="31" transform="translate(416)" fill="#80002a"/>
-            <rect class="hero-anim" id="Rectangle_7" data-name="Rectangle 7" width="213" height="213" rx="31" transform="translate(405 456)" fill="#80002a"/>
-            <rect class="hero-anim" id="Rectangle_14" data-name="Rectangle 14" width="177" height="256" rx="31" transform="translate(583 206)" fill="#80002a"/>
-            <rect class="hero-anim" id="Rectangle_6" data-name="Rectangle 6" width="177" height="256" rx="31" transform="translate(629 206)" fill="#ab0239"/>
-            <g id="Component_3_1" data-name="Component 3 – 1" transform="translate(657 206)">
-              <rect class="rect1" id="Rectangle_11" data-name="Rectangle 11" width="177" height="256" rx="31" fill="#b91e50"/>
-            </g>
-            <rect class="hero-anim" id="Rectangle_12" data-name="Rectangle 12" width="177" height="256" rx="31" transform="translate(717 206)" fill="#d86087"/>
-            <rect class="hero-anim" id="Rectangle_13" data-name="Rectangle 13" width="177" height="256" rx="31" transform="translate(788 206)" fill="#fff"/>
-            <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#Line_3)" style="mix-blend-mode: color-burn;isolation: isolate">
-              <line id="Line_3-2" data-name="Line 3" x1="20" y1="18" transform="translate(487.5 200.92)" fill="none" stroke="#fff" stroke-width="1"/>
-            </g>
-            <path class="Path_1" d="M1824,499v89.86l85.59,1.2.376-5.032-.485-6.959-.324-5.826-1.457-6.312-2.1-7.606-3.56-9.71-3.075-6.8-3.075-4.693L1892,531.949l-4.046-4.693-3.56-3.722-5.017-4.208-5.664-4.855-7.388-4.325-8.7-3.978-8.216-3.116-10.766-2.72Z" transform="translate(-1403 -373.266)" fill="#fff"/>
-            <path class="Path_2" d="M50.908,0,0,49.891H50.908Z" transform="matrix(-0.017, -1, 1, -0.017, 372.809, 752.454)" fill="#fff"/>
-            <path class="Path_3" d="M1817.926,1011.184l-50.488,50.488h50.488Z" transform="translate(1817.926 1061.672) rotate(180)" fill="#80002a"/>
-              
-          </svg>
-        </div>
-
-        <section class="featured">
-            <div class="left">
-                <div class="inner leftleft" id="left">
-                    <p class="subtitle aboutMe">About Me</p>
-                    <p class="featured-title yoyo1">A little Something about myself</p>
-                    <p class="featured-desc yoyo"><b><i>Hey! I am Aaron, a</i></b> twenty-one year old <b><i>programmer, <a href="https://opensea.io/assets/matic/0x2953399124f0cbb46d2cbacd8a89cf0599974963/10472999262761948105099568007545247299019903745245840021551445413719026171905" style="color: maroon; text-decoration: underline;"> digital artist</a> and much more. Currently based in <b class="india">India</b></i>
-                        </b>
-                    </p>
-                </div>
-            </div>
-            <div class="photo-box">
-                <ul>
-                    <li>
-                        <a href="https://www.instagram.com/adjroyan/"><img class="right_img transition2 " src="images/left.png " alt="About Me "></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/adjroyan/"> <img class="right_img transition2 " src="images/ncenter.png " alt="About Me "></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/adjroyan/"> <img class="right_img transition2 " src="images/right.png " alt="About Me "></a>
-                    </li>
-
-                </ul>
-            </div>
-            <div class="ye">
-                <a href="https://www.instagram.com/adjroyan/"><img class="right_img transition2 " src="images/full.png " alt="About Me "></a>
-            </div>
-        </section>
-
-        <section class="skills ">
-            <div class="skills-container ">
-                <ul>
-                    <li class="uptop ">
-                        <div class="icon-container one ">
-                            <img src="images/game-development.png " alt="Game Controller ">
-                        </div>
-                        <p class="skills-title ">Game Developer</p>
-                        <p class="featured-desc skill-desc ">- Unity <br><br>- Python <br><br>- C++</p>
-                    </li>
-                    <li class="uptop ">
-                        <div class="icon-container two ">
-                            <img src="images/coding.png " alt="Terminal ">
-                        </div>
-                        <p class="skills-title ">Programmer</p>
-                        <p class="featured-desc skill-desc ">- C -Java -html/scss<br><br>-C#-Python -JS<br><br>-C++ -PHP etc.</p>
-                    </li>
-                    <li class="uptop ">
-                        <div class="icon-container three ">
-                            <img src="images/graphic-designer.png " alt="Digital Artist ">
-                        </div>
-                        <p class="skills-title ">Digital Artist</p>
-                        <p class="featured-desc skill-desc ">- Adobe Photoshop <br><br>- Adobe Xd <br><br>- Adobe Illustrator</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="portfolio ">
-            <p class="selected "><b>SELECTED</b> <br><i>WORKS</i> </p> <br>
-            <div class="portfolio-container transition3 ">
-                <div class="portfolio-left ">
-                    <div class="inner inner-left grid-left">
-                        <p class="subtitle prja"><b>Mars Invaders</b></p> <br>
-                        <p class="featured-desc "><i>Created a game in python using the 'pygame' module. This game was inspired by the 1978 Space Invaders Arcade Game</i></p> <br>
-                    </div>
-                </div>
-                <a href="https://github.com/AaronRoyan/Space-Invaders">
-                    <img class="project-images" src="/images/space1.png" alt="Mars Invaders">
-                </a>
-            </div> <br>
-            <!-- Ermutigen -->
-            <div class="portfolio-container transition3 ">
-                <div class="portfolio-left ">
-                    <div class="inner inner-left grid-left">
-                        <p class="subtitle prjd"><b>Ermutigen</b></p> <br>
-                        <p class="featured-desc "><i>Ermutigen is a discord bot that encourages users and says/types some supportive and encouraging messages. Ermutigen is the German word for encourage.</i></p> <br>
-                    </div>
-                </div>
-                <a href="https://github.com/AaronRoyan/Ermutigen---Discord-Bot">
-                    <img class="project-images" src="images/discord.png " alt=" ">
-                </a>
-            </div> <br>
-            <!-- Neerathon -->
-            <div class="portfolio-container transition3 ">
-                <div class="portfolio-left ">
-                    <div class="inner inner-left grid-left">
-                        </p>
-                        <p class="subtitle prj"><b>Neerathon</b></p> <br>
-                        <p class="featured-desc "><i>Neerathon is a marathon that is organized by a massive and well-known Association of my College once a year with nearly thousands of participants. My team an I created a Full-Stack Website to manage and record the entries of all the Participants. </i></p>
-                        <br>
-                    </div>
-                </div>
-                <a href="https://github.com/AaronRoyan/Neerathon">
-                    <img class="project-images" src="images/runner.png " alt="Runne ">
-                </a>
-            </div> <br>
-            <!-- Bike Game -->
-            <div class="portfolio-container transition3 ">
-                <div class="portfolio-left ">
-                    <div class="inner inner-left grid-left">
-                        </p>
-                        <p class="subtitle prj"><b>Trial Bike Pro</b></p> <br>
-                        <p class="featured-desc "><i>A motorcycle video game made from c++ using SDL(Simple DirectMedia Layer) that is a language used to describe real-time systems which I used to create the game.</i></p> <br>
-                    </div>
-                </div>
-                <a href="https://github.com/AaronRoyan/Bike-Grill">
-                    <img class="project-images" src="images/bike3.jpg.png " alt=" ">
-                </a>
-            </div>
-        </section>
-        <i><p class="muchMore">and <a  href="https://github.com/AaronRoyan?tab=repositories" target="_blank">much</a> more...</p></i>
-        <!-- <h2 class="want">Want to Discuss a</h2>
-        <footer class="footer-container">
-            <h2 class="project">New Project?</h2>
-        </footer> -->
-        <footer class="footer-ele1">
-            <svg class="footer-ele1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1964" height="418" viewBox="100 0 1964 418">
-            <g class="Rectangle_21" data-name="Rectangle 21" transform="translate(0 102)" fill="#720126" stroke="#fcff9c" stroke-width="1">
-              <rect class="mainFooterRect" width="2200" height="514" stroke="none"/>              
-            </g>
-            <g class="Component_1_3" data-name="Component 1 – 3" transform="translate(117 164)">
-              <text class="Aaron_Royan" data-name="Aaron Royan" transform="translate(2 144)" font-size="133" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
-            </g>
-            <g id="Component_1_4" data-name="Component 1 – 4" transform="translate(140 146)">
-              <text id="Aaron_Royan-2" data-name="Aaron Royan" transform="translate(2 144)" fill="#fff" font-size="133" font-family="Playfair Display" font-weight="700"><tspan x="0" y="0">Aaron Royan</tspan></text>
-            </g>
-            <a href="https://www.instagram.com/adjroyan/" target="_blank"><image class="instagram footer-social" width="32" height="32" transform="translate(899 51)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAhQAAAIUB4uz/wQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAJPSURBVFiFvdc/TxRRFAXw34D8CZAsH4FIYWGUiAmNJhIaC0gsDEqk8AtRSEKjFUFDLDCxsBALEhoSoqHRDk02FsbeSECz+yzmLQzLzu7Osu5NTvPm3jln7tz73rtJCEGeJUkyiL5ch/asGkL4k/s0hHAOeIg3+I7QJZSxhQcX+DLEJbzuImkeNjDWSEAvyGtYPycgpr1X5DUshBBOC+yJ/2ff8K7B+mOcZqDTgjtuw+de5NirW/9S68DBgqRbWMQkEgxjAo+wjWqd/zPcxY+69aOagOE2icuYzxTtEGZwGwOZ9SkctpO9IgJeYTQG3Mc+Tup+xR7mMi39oVsCyhjFCJ638K1iLb6zhK/dEDAfHVuRZ7EaY6ZdrIlCArYyaS9SqFXMxtidywhYjE77BQUE7MbY5csImJRW+0lB8oDf6Me1TgUcS/t8pgPyGm5KizFXQLOzfiii0sSnlVViJkIzp2a/YAID2tty6/FLepm5kfO8ZQZgJoTwFwdtf/OZfQwhVKWt2NSaZWA7Fsqc/H5uhAruxNj3OT5tdUEVU9FxrYCAlRiz1MSn7Z3wUFrJw1htkYkKVqQn7Dh+dkNAkB4spRgwi11n1V0ruJ1M2sfxtsU7CwkI0oNlOnPs9kv7/Dr6MutLLb78goAiF5Jq/NJl6Q5XwhVpqz2VX3CNcJS9lJYLBDYS1Unc5+w+8EnnlnQYd8DZ2PXyEgI6tU3IDiYbOv8NRfGi0WQ0hvVekGOkxpvUT8dJkixIh4ZbuKoL07F0ODnAZghh+xxfs/G8F/YPZAtUqOEILRIAAAAASUVORK5CYII="/>
-            </a>
-            <a href="https://github.com/AaronRoyan" target="_blank"><image class="github-sign footer-social" width="32" height="32" transform="translate(506 51)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAA3QAAAN0BcFOiBwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAKfSURBVFiFtZe/axRBFMc/M9EkzRFEyC/QBPIDjvPiPyAEUlhYmMPCBLHRIiA2ghGut4idFlaCJ5LAYZc0uVZQWwU1F4i5SoNapLExiXd5Fjur42Zmd8/bPPgWN/Pe9/udmZ3dd0pESBtKqRPABSAPDBkAfDXYBF6LSDM1qYgkApgGngO7gCRg1+ROp+JOEJ4C1lOI+rAOTP2XAaAMtDoQD9ECyqkNAL3AcgbCUSwDvbEGAA2sHYN4iDVAxxlYOkbxEEtOA8CsI/k+kAPuADttiOyYmpzhiM7PhrpKRML7vQFM8m/Mi8gLAKVUD3ATKALbFgQYt/ARqIjIvqmbB6oR3i2gICLNcPULnpXEXqGU75DzHu4FEUEbR4u4Y8gz3k4MeMYXAbRSqgBMeJL2MzBw4BmfUEoVNFDyJKyIyMtO1Q3Hime6BFDDfUb5Ts/feg7yHo2aBoYdzn4SPKlZxZbhjMawBgYdEw0RaWWlbrgajqlBTfCyiMaZrMQTOHMat7M+pdTZrJQNV59jqqGBuqfuXFYGYrjqmqCNcsWlDA34uDYB5nBfkUNgJoMrOGO4XBpzAGMxCV+A0Q7ERw2Hb4FjYWLVmngLfLZ+7wEPgf42hPuBR6bW98mu/ukHCD7DTTOxCpwCblljoeM68IRIV2M4FPDY5Ph2NEQTmIw2JBUroWbGbjuKn8as/G6CcIiKqyMaiWzZVTN+D/gG/ABeAeMxBoopxPeAEV9PeJngEyzAd2BA/jarKsXZn0wQP8Bqx44YcJh4AxTbePhUgnjpSI2HyDZxCLwD3gOf4nYC6PKI/wKuOGsSXiAfHGRdbR7BBnDRW5OwpRq4ZlYeEnbH5HdbedvAdRxX1oYyhbFh2vYbwGkReZCQWyb4h/xMUvxN/w3ZEpJZeOH+VAAAAABJRU5ErkJggg=="/>
-            </a>
-            <a href="https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/" target="_blank"><image class="linkedn-logo footer-social" width="32" height="32" transform="translate(117 51)" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAA3NCSVQICAjb4U/gAAAACXBIWXMAAADeAAAA3gHd6oNqAAAAGXRFWHRTb2Z0d2FyZQB3d3cuaW5rc2NhcGUub3Jnm+48GgAAAHhQTFRF////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAtlK+7AAAACd0Uk5TAAECAxESFBUiMTc7S2hvcHF0eYmLmaCqytDW2Nvf4+nu9PX3+v3+kojSDQAAAKhJREFUOMvl000TwTAUheGXFq2PaktxqVLF+f//0MLoDCOJvbO5m2eRm+QwyGo5U2cDMnmTUftBjQJ5grYqDj7QToCNB1QAqQcUAPHVDQ4Aue+QmzTOTz4gXf1rhu6hMzNr+nnfrbbNGzCAxWvuE2C4vLjAdAQAs5sD9Fm7wLgsxwCJA0RH6RgBnL+DuSTNAcyxhSQt/hJ8PLekxsys++3DBKsXLG+o/g9r+3MfDlBiZwAAAABJRU5ErkJggg=="/>
-            </a>
-            <text class="Want_to_Discuss_a_new_Project_" data-name="Want to Discuss a new Project?" transform="translate(1230)" fill="#fff" font-size="77" font-family="Playfair Display" font-weight="700"><tspan x="0" y="83">Want to Discuss a </tspan><tspan x="0" y="185">new Project?</tspan></text>
-            <text class="Want_to_Discuss_a_" data-name="Want to Discuss a " transform="translate(1230)" fill="#720126" font-size="77" font-family="Playfair Display" font-weight="700"><tspan x="0" y="83">Want to Discuss a </tspan></text>
-            <g class="Rectangle_22" data-name="Rectangle 22" transform="translate(1192 259)" fill="#fff" stroke="#707070" stroke-width="1">
-              <rect width="680" height="137" rx="68.5" stroke="none"/>
-              <rect x="0.5" y="0.5" width="679" height="136" rx="68" fill="none"/>
-            </g>
-            <text class="Send_me_a_E-mail" data-name="Send me a E-mail" transform="translate(1230 275)" fill="#720126" stroke="#000" stroke-width="2" font-size="74" font-family="MyanmarText-Bold, Myanmar Text" font-weight="700"><tspan x="-19" y="76"><a href="mailto:aaron.dom.royan@gmail.com">Send me an E-mail</a></tspan></text>
-          </svg>
-        </footer>
-        <footer class="footer-ele2">
-            <div class="drop-shadow">
-                <div class="glass"></div>
-                <ul>
-                    <a href="#">
-                        <img src="./images/briefcase-fill.svg" alt="reload">
-                        <li>Work</li>
-                    </a>
-                    <a href="./images/Aaron Royan Resume.pdf" download rel="noopener noreferrer" target="_blank">
-                        <img src="./images/body-text.svg" alt="reload">
-                        <li>Resume</li>
-                    </a>
-                    <a href="./contact.html">
-                        <img src="./images/journal-text.svg" alt="">
-                        <li>Contact</li>
-                    </a>
-                </ul>
-            </div>
-        </footer>
+  <div class="menu" id="menu" hidden>
+    <nav class="menu__links" aria-label="Mobile">
+      <a href="#work"><span class="mono">01</span>Work</a>
+      <a href="#experience"><span class="mono">02</span>Experience</a>
+      <a href="#about"><span class="mono">03</span>About</a>
+      <a href="#contact"><span class="mono">04</span>Contact</a>
+    </nav>
+    <div class="menu__foot mono">
+      <a href="mailto:aaron.dom.royan@gmail.com">aaron.dom.royan@gmail.com</a>
+      <a href="docs/Aaron-Royan-CV.pdf" target="_blank" rel="noopener">Download CV ↗</a>
     </div>
-    <script>
-        window.addEventListener('scroll', function() {
-            let header = document.querySelector('.nav-container');
-            let windowPosition = window.scrollY > 0;
-            header.classList.toggle('scrolling-active-header', windowPosition);
-        });
+  </div>
 
-        window.addEventListener('scroll', function() {
-            let header = document.querySelector('.social-header');
-            let windowPosition = window.scrollY > 0;
-            header.classList.toggle('scrolling-active-social', windowPosition);
-        });
+  <main id="main">
 
-        //loader
+    <!-- ─────────────────────────────── Hero ─────────────────────────────── -->
+    <section class="hero" id="top" aria-label="Introduction" data-cursor="add">
+      <canvas class="hero__canvas" aria-hidden="true"></canvas>
 
-        window.addEventListener("load", function() {
-            var loader = document.getElementById("preloader");
-            loader.style.display = "none";
-            loader.classList.add("preload-finish");
-        });
+      <div class="hero__top mono" data-intro>
+        <p>Software Engineer <span class="slash">/</span> AI Engineer</p>
+        <p class="hero__coords">53.38° N, 1.47° W — Sheffield, UK</p>
+      </div>
 
-        //Scroll
-        window.addEventListener('scroll', function() {
-            let header = document.querySelector('.nav-container');
-            let windowPosition = window.scrollY > 0;
-            header.classList.toggle('scrolling-active-header', windowPosition);
-        });
+      <h1 class="hero__name">
+        <span class="sr-only">Aaron Royan</span>
+        <span class="hero__name-vis" aria-hidden="true"><span class="w"><span class="c">A</span><span class="c">a</span><span class="c">r</span><span class="c">o</span><span class="c">n</span></span> <span class="w w--it"><span class="c">R</span><span class="c">o</span><span class="c">y</span><span class="c">a</span><span class="c">n</span></span></span>
+      </h1>
 
-        window.addEventListener('scroll', function() {
-            let header = document.querySelector('.social-header');
-            let windowPosition = window.scrollY > 0;
-            header.classList.toggle('scrolling-active-social', windowPosition);
-        });
+      <div class="hero__grid">
+        <p class="hero__lede" data-intro>I build software that keeps real operations moving — and bring an MSc in&nbsp;AI to the problems that need&nbsp;it.</p>
+        <dl class="hero__meta" data-intro>
+          <div><dt class="mono">Now</dt><dd>Junior Developer, A Shade Greener</dd></div>
+          <div><dt class="mono">Before</dt><dd>AI Model Engineer, The King’s Trust<br>Full Stack Developer, Loyalytics.AI</dd></div>
+          <div><dt class="mono">Education</dt><dd>MSc Artificial Intelligence, University of Sussex</dd></div>
+        </dl>
+      </div>
 
+      <div class="hero__foot mono" data-intro>
+        <p class="hero__fig">
+          <span>Fig. 00 — 2-opt route solver, running live</span>
+          <span class="hero__stats"><b data-stat="stops">0</b> stops · <b data-stat="gain">0%</b> shorter</span>
+          <span class="hero__actions"><button type="button" data-route="add">+ Add stop</button> <button type="button" data-route="shuffle">↻ Re-run</button></span>
+        </p>
+        <p class="status"><span class="pulse" aria-hidden="true"></span>Open to conversations</p>
+        <a class="hero__scroll" href="#work">Scroll <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
 
+    <!-- ─────────────────────────────── 01 Selected work ─────────────────────────────── -->
+    <section class="section work" id="work" aria-labelledby="work-title">
+      <header class="shead">
+        <p class="shead__no mono">(01)</p>
+        <h2 class="shead__title" id="work-title" data-split>Selected work</h2>
+        <p class="shead__aside mono">2021 – 2026<br>Six projects</p>
+      </header>
 
-        gsap.registerPlugin(ScrollTrigger);
-        var tl = gsap.timeline();
-        tl.from('header', 1.2, {
-            x: '-100',
-            opacity: 0,
-            duration: 1.4,
-            ease: Power4.easeOut
-        });
-        tl.from('.content', 1.2, {
-            x: '-100',
-            opacity: 0,
-            duration: 1.4,
-            ease: Power4.easeOut
-        });
+      <ol class="index" data-reveal-list>
+        <li class="index__item" data-preview="wms" data-label="Fig. 01 — Pick-path schematic">
+          <a class="index__link" href="#case-wms">
+            <span class="index__no mono">01</span>
+            <span class="index__title">Warehouse Management System</span>
+            <span class="index__org mono">A Shade Greener</span>
+            <span class="index__kind mono">Product engineering</span>
+            <span class="index__year mono">2026</span>
+          </a>
+        </li>
+        <li class="index__item" data-preview="matrix" data-label="Fig. 02 — Route-matrix optimisation">
+          <a class="index__link" href="#case-routes">
+            <span class="index__no mono">02</span>
+            <span class="index__title">Engineer Route Optimisation</span>
+            <span class="index__org mono">A Shade Greener</span>
+            <span class="index__kind mono">Optimisation</span>
+            <span class="index__year mono">2026</span>
+          </a>
+        </li>
+        <li class="index__item" data-preview="jobs" data-label="Fig. 03 — Job board schematic">
+          <a class="index__link" href="#case-jobs">
+            <span class="index__no mono">03</span>
+            <span class="index__title">Roofing Job Management</span>
+            <span class="index__org mono">A Shade Greener</span>
+            <span class="index__kind mono">Field operations</span>
+            <span class="index__year mono">2026</span>
+          </a>
+        </li>
+        <li class="index__item" data-preview="eeg" data-label="Fig. 04 — EEG artifact removal">
+          <a class="index__link" href="#case-eeg">
+            <span class="index__no mono">04</span>
+            <span class="index__title">Cognitive State Detection</span>
+            <span class="index__org mono">The King’s Trust</span>
+            <span class="index__kind mono">Applied ML · Research</span>
+            <span class="index__year mono">2025</span>
+          </a>
+        </li>
+        <li class="index__item" data-preview="prompt" data-label="Fig. 05 — Prompt recovery">
+          <a class="index__link" href="#case-prompt">
+            <span class="index__no mono">05</span>
+            <span class="index__title">LLM Prompt Recovery</span>
+            <span class="index__org mono">University of Sussex</span>
+            <span class="index__kind mono">NLP · LLMs</span>
+            <span class="index__year mono">2024</span>
+          </a>
+        </li>
+        <li class="index__item" data-preview="pipeline" data-label="Fig. 06 — Model-to-API pipeline">
+          <a class="index__link" href="#case-launch">
+            <span class="index__no mono">06</span>
+            <span class="index__title">ML Launch Programme</span>
+            <span class="index__org mono">Loyalytics.AI</span>
+            <span class="index__kind mono">ML · APIs · Cloud</span>
+            <span class="index__year mono">2022</span>
+          </a>
+        </li>
+      </ol>
+    </section>
 
-        tl.from('.social-stagger', {
-            x: '-30%',
-            opacity: 0,
-            stagger: .3,
-            duration: 1,
-            ease: Power4.easeOut
-        })
-        tl.from('.nav-stagger', {
-            x: '30%',
-            opacity: 0,
-            stagger: .3,
-            duration: 1,
-            ease: Power4.easeOut
-        }, '-=.5')
+    <!-- ─────────────────────────────── Case studies ─────────────────────────────── -->
+    <div class="cases">
 
-        tl.from('.stagger1', {
-            opacity: 0,
-            y: -50,
-            stagger: .3,
-            duration: 2,
-            ease: Power4.easeOut
-        }, '-=1')
+      <article class="case" id="case-wms" aria-labelledby="case-wms-title">
+        <aside class="case__meta">
+          <p class="case__no mono">Case 01 <span>/ 06</span></p>
+          <dl class="case__dl">
+            <div><dt class="mono">At</dt><dd>A Shade Greener</dd></div>
+            <div><dt class="mono">Role</dt><dd>Junior Developer</dd></div>
+            <div><dt class="mono">Stack</dt><dd>React, TypeScript</dd></div>
+            <div><dt class="mono">Year</dt><dd>2026</dd></div>
+          </dl>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title" id="case-wms-title" data-split>Warehouse Management System</h3>
+          <figure class="fig">
+            <div class="fig__frame"><canvas data-figure="wms" role="img" aria-label="Animated schematic: a picker travels the warehouse aisles, collecting items from highlighted bins on a pick list."></canvas></div>
+            <figcaption class="fig__cap mono"><span>Fig. 01 — Pick-path schematic</span><span class="live">Live</span></figcaption>
+          </figure>
+          <div class="case__text">
+            <p class="case__lede" data-reveal>A full-scale warehouse management system, built from scratch for the company’s core workflows.</p>
+            <p class="case__desc" data-reveal>Warehouses run on accuracy: knowing what’s in stock, where it lives and what needs to move next. I built A Shade Greener’s warehouse management system from a blank repository to handle those core workflows.</p>
+          </div>
+        </div>
+      </article>
 
-        tl.from('.hero-design', {
-            y: '-50',
-            opacity: 0,
-            duration: 1,
-            ease: Power4.easeOut
-        });
+      <article class="case" id="case-routes" aria-labelledby="case-routes-title">
+        <aside class="case__meta">
+          <p class="case__no mono">Case 02 <span>/ 06</span></p>
+          <dl class="case__dl">
+            <div><dt class="mono">At</dt><dd>A Shade Greener</dd></div>
+            <div><dt class="mono">Role</dt><dd>Junior Developer</dd></div>
+            <div><dt class="mono">Technique</dt><dd>Route-matrix optimisation</dd></div>
+            <div><dt class="mono">Year</dt><dd>2026</dd></div>
+          </dl>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title" id="case-routes-title" data-split>Engineer Route Optimisation</h3>
+          <figure class="fig">
+            <div class="fig__frame"><canvas data-figure="matrix" role="img" aria-label="Animated diagram: a matrix of travel costs between eight stops fills in, then a route is built from it and improved by swapping crossing edges."></canvas></div>
+            <figcaption class="fig__cap mono"><span>Fig. 02 — Travel-cost matrix → optimised route</span><span class="live">Live</span></figcaption>
+          </figure>
+          <div class="case__text">
+            <p class="case__lede" data-reveal>Route-matrix optimisation that plans engineers’ routes more efficiently.</p>
+            <p class="case__desc" data-reveal>Every extra mile between jobs is time an engineer isn’t on site. The approach: build a matrix of travel costs between every pair of stops, then search for the visiting order that keeps the total as low as possible — the same idea running live at the top of this page.</p>
+          </div>
+        </div>
+      </article>
 
-        gsap.from('.hero-anim', {
-            stagger: .2,
-            scale: 0.1,
-            opacity: 0,
-            duration: 1,
-            ease: Sine.easeOut,
-            y: '-500'
-        });
+      <article class="case" id="case-jobs" aria-labelledby="case-jobs-title">
+        <aside class="case__meta">
+          <p class="case__no mono">Case 03 <span>/ 06</span></p>
+          <dl class="case__dl">
+            <div><dt class="mono">At</dt><dd>A Shade Greener</dd></div>
+            <div><dt class="mono">Role</dt><dd>Junior Developer</dd></div>
+            <div><dt class="mono">Users</dt><dd>Off-site roofing team</dd></div>
+            <div><dt class="mono">Year</dt><dd>2026</dd></div>
+          </dl>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title" id="case-jobs-title" data-split>Roofing Job Management</h3>
+          <figure class="fig">
+            <div class="fig__frame"><canvas data-figure="jobs" role="img" aria-label="Animated schematic: a weekly board of crews and days fills with jobs that move from scheduled, to on site, to done."></canvas></div>
+            <figcaption class="fig__cap mono"><span>Fig. 03 — Job board schematic</span><span class="live">Live</span></figcaption>
+          </figure>
+          <div class="case__text">
+            <p class="case__lede" data-reveal>A job management system for the off-site roofing team.</p>
+            <p class="case__desc" data-reveal>Software for people whose workplace is a roof, not a desk. Alongside it I maintain and extend the rest of the company’s software — fixes, new features and continuous improvements — on k3s clusters across development and deployment.</p>
+          </div>
+        </div>
+      </article>
 
-        tl.from('.transition2', {
-            ScrollTrigger: {
-                trigger: '.transition2',
-                start: 'top bottom',
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1,
-            ease: Power4.easeOut,
-            stagger: .3
-        });
-        gsap.from(".uptop", {
-            scrollTrigger: {
-                trigger: ".uptop",
-                start: "top center"
-            },
-            opacity: 0,
-            y: -100
-        });
-        gsap.from(".leftleft", {
-            scrollTrigger: {
-                trigger: ".leftleft",
-                start: "top center"
-            },
-            opacity: 0,
-            x: -100
-        });
+      <article class="case" id="case-eeg" aria-labelledby="case-eeg-title">
+        <aside class="case__meta">
+          <p class="case__no mono">Case 04 <span>/ 06</span></p>
+          <dl class="case__dl">
+            <div><dt class="mono">At</dt><dd>The King’s Trust</dd></div>
+            <div><dt class="mono">Role</dt><dd>AI Model Engineer &amp; Researcher</dd></div>
+            <div><dt class="mono">Stack</dt><dd>Python, MNE, scikit-learn, OpenBCI</dd></div>
+            <div><dt class="mono">Year</dt><dd>2025</dd></div>
+          </dl>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title" id="case-eeg-title" data-split>Cognitive State Detection</h3>
+          <figure class="fig">
+            <div class="fig__frame"><canvas data-figure="eeg" role="img" aria-label="Animated signal plot: eight EEG channels scroll past a processing line where eye-blink artifacts are removed, beside fNIRS traces and a fatigue probability."></canvas></div>
+            <figcaption class="fig__cap mono"><span>Fig. 04 — EEG artifact removal (illustrative signal)</span><span class="live">Live</span></figcaption>
+          </figure>
+          <div class="case__text">
+            <p class="case__lede" data-reveal>A wearable that reads mental fatigue from brain signals.</p>
+            <p class="case__desc" data-reveal>I designed a wearable bio-sensing system combining EEG (the brain’s electrical activity) and fNIRS (blood oxygenation) for mental-state analysis — then built the pipeline that turns noisy raw signals into predictions: artifact removal, feature extraction and machine-learning fatigue classification, tested on real-world data.</p>
+          </div>
+          <ul class="stats" aria-label="Results">
+            <li><span class="stats__num">+<span data-count="42">42</span>%</span><span class="stats__label mono">Data accuracy</span></li>
+            <li><span class="stats__num">+<span data-count="35">35</span>%</span><span class="stats__label mono">Classification accuracy</span></li>
+            <li><span class="stats__num">−<span data-count="60">60</span>%</span><span class="stats__label mono">Processing time</span></li>
+          </ul>
+        </div>
+      </article>
 
-        gsap.from(".inner-left", {
-            scrollTrigger: {
-                trigger: ".inner-left",
-                start: "top center"
-            },
-            opacity: 0,
-            x: -100
-        });
-        gsap.from(".project-images", {
-            scrollTrigger: {
-                trigger: ".project-images",
-                start: "top center"
-            },
-            opacity: 0,
-            ease: Sine.easeIn,
-            duration: 1,
-            x: 500
-        });
-        gsap.from(".footer-ele1", {
-            scrollTrigger: {
-                trigger: ".footer-ele1",
-                start: "top bottom"
-            },
-            opacity: 0,
-            ease: Sine.easeIn,
-            duration: 1,
-            y: 500
-        });
-        let h1 = document.querySelector(".footer-social"),
-            hover = gsap.to(h1, {
-                scale: 1.12,
-                duration: 0.3,
-                paused: true,
-                ease: "power1.inOut"
-            });
+      <article class="case" id="case-prompt" aria-labelledby="case-prompt-title">
+        <aside class="case__meta">
+          <p class="case__no mono">Case 05 <span>/ 06</span></p>
+          <dl class="case__dl">
+            <div><dt class="mono">At</dt><dd>University of Sussex</dd></div>
+            <div><dt class="mono">Context</dt><dd>MSc specialism</dd></div>
+            <div><dt class="mono">Field</dt><dd>NLP, large language models</dd></div>
+            <div><dt class="mono">Year</dt><dd>2024</dd></div>
+          </dl>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title" id="case-prompt-title" data-split>LLM Prompt Recovery</h3>
+          <figure class="fig">
+            <div class="fig__frame"><canvas data-figure="prompt" role="img" aria-label="Animated example: an original sentence, its rewrite by a language model, and the prompt recovered from the pair — for example, rewrite this in Shakespearean English."></canvas></div>
+            <figcaption class="fig__cap mono"><span>Fig. 05 — Original + rewrite → recovered prompt</span><span class="live">Live</span></figcaption>
+          </figure>
+          <div class="case__text">
+            <p class="case__lede" data-reveal>Working backwards from a language model’s output to the prompt that produced it.</p>
+            <p class="case__desc" data-reveal>Given an original text and a version rewritten by a large language model, can you recover the instruction it was given? Prompt recovery was the specialist focus of my MSc in Artificial Intelligence and Adaptive Systems: reverse-engineering intent from text.</p>
+          </div>
+        </div>
+      </article>
 
-        h1.addEventListener("mouseenter", () => hover.play());
-        h1.addEventListener("mouseleave", () => hover.reverse());
+      <article class="case" id="case-launch" aria-labelledby="case-launch-title">
+        <aside class="case__meta">
+          <p class="case__no mono">Case 06 <span>/ 06</span></p>
+          <dl class="case__dl">
+            <div><dt class="mono">At</dt><dd>Loyalytics.AI</dd></div>
+            <div><dt class="mono">Role</dt><dd>Full Stack Developer</dd></div>
+            <div><dt class="mono">Stack</dt><dd>TypeScript, Node.js, Python, AWS, GCP, Azure</dd></div>
+            <div><dt class="mono">Year</dt><dd>2021 – 22</dd></div>
+          </dl>
+        </aside>
+        <div class="case__body">
+          <h3 class="case__title" id="case-launch-title" data-split>ML Launch Programme</h3>
+          <figure class="fig">
+            <div class="fig__frame"><canvas data-figure="pipeline" role="img" aria-label="Animated diagram: data flows through features and a machine-learning model, out through an API to several client applications."></canvas></div>
+            <figcaption class="fig__cap mono"><span>Fig. 06 — Model served through scalable APIs</span><span class="live">Live</span></figcaption>
+          </figure>
+          <div class="case__text">
+            <p class="case__lede" data-reveal>A machine-learning launch programme that lifted client profits by 7%.</p>
+            <p class="case__desc" data-reveal>I led the design and deployment of a new launch programme, integrating machine-learning models with scalable APIs. Alongside it I built full-stack web apps for real-time data analysis and decision-making, working in cross-functional agile teams on tight timelines.</p>
+          </div>
+          <ul class="stats" aria-label="Results">
+            <li><span class="stats__num">+<span data-count="7">7</span>%</span><span class="stats__label mono">Client profit</span></li>
+            <li><span class="stats__num stats__num--word">Best Team Launch</span><span class="stats__label mono">Company honour</span></li>
+          </ul>
+        </div>
+      </article>
+    </div>
 
+    <!-- ─────────────────────────────── 02 Experience ─────────────────────────────── -->
+    <section class="section xp" id="experience" aria-labelledby="xp-title">
+      <header class="shead">
+        <p class="shead__no mono">(02)</p>
+        <h2 class="shead__title" id="xp-title" data-split>Experience</h2>
+        <p class="shead__aside mono">2021 – Now</p>
+      </header>
 
+      <ol class="xp__list">
+        <li class="xp__row" data-reveal>
+          <p class="xp__when mono">Feb 2026 – Now</p>
+          <div class="xp__head">
+            <h3 class="xp__role">Junior Developer</h3>
+            <p class="xp__org mono">A Shade Greener · Sheffield</p>
+          </div>
+          <div class="xp__detail">
+            <ul class="xp__points">
+              <li>Built a full-scale warehouse management system from scratch for core workflows.</li>
+              <li>Built a job management system for the off-site roofing team.</li>
+              <li>Implemented route-matrix optimisation to plan engineer routes more efficiently.</li>
+              <li>Maintain and develop company software through fixes and continuous enhancements, working with k3s clusters across development and deployment.</li>
+            </ul>
+            <p class="tags mono"><span>React</span><span>TypeScript</span><span>k3s</span></p>
+          </div>
+        </li>
+        <li class="xp__row" data-reveal>
+          <p class="xp__when mono">Mar – Dec 2025</p>
+          <div class="xp__head">
+            <h3 class="xp__role">AI Model Engineer &amp; Researcher</h3>
+            <p class="xp__org mono">The King’s Trust</p>
+          </div>
+          <div class="xp__detail">
+            <ul class="xp__points">
+              <li>Designed a wearable EEG + fNIRS system to capture brain activity for mental-state analysis, improving data accuracy by 42%.</li>
+              <li>Built the pipeline for artifact removal, feature extraction and ML fatigue classification, improving classification accuracy by 35%.</li>
+              <li>Developed and tested the system on real-world data, reducing processing time by 60%.</li>
+            </ul>
+            <p class="tags mono"><span>Python</span><span>MNE</span><span>scikit-learn</span><span>OpenBCI</span></p>
+          </div>
+        </li>
+        <li class="xp__row" data-reveal>
+          <p class="xp__when mono">Oct 2021 – Jun 2022</p>
+          <div class="xp__head">
+            <h3 class="xp__role">Full Stack Developer</h3>
+            <p class="xp__org mono">Loyalytics.AI · Bangalore</p>
+          </div>
+          <div class="xp__detail">
+            <ul class="xp__points">
+              <li>Led the design and deployment of a new launch programme, integrating ML models and scalable APIs to boost client profits by 7%.</li>
+              <li>Built scalable full-stack web apps for real-time data analysis and decision-making, with TypeScript backends on AWS, GCP and Azure.</li>
+              <li>Delivered with cross-functional agile teams on tight timelines using Python and Node.js.</li>
+            </ul>
+            <p class="tags mono"><span>TypeScript</span><span>Node.js</span><span>Python</span><span>AWS</span><span>GCP</span><span>Azure</span></p>
+          </div>
+        </li>
+        <li class="xp__row xp__row--aside" data-reveal>
+          <p class="xp__when mono">2023 – 2026</p>
+          <div class="xp__head">
+            <h3 class="xp__role">Alongside: professional kitchens</h3>
+            <p class="xp__org mono">Miller &amp; Carter · Tonkotsu</p>
+          </div>
+          <div class="xp__detail">
+            <p class="xp__note">Chef, then Junior Sous Chef, through my MSc and research. Led teams through busy service and redesigned kitchen workflows to lift profit by 8% and cut food waste by 20%. Voted Player’s Player and named Employee of the Quarter.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
 
-        var typed = new Typed('.element', {
-            strings: ['Student by day, Programmer by Night !^2000', 'Student by day, Digital Artist by Night ! ^2000', 'Student by day, Game Developer by Night ! ^2000'],
-            smartBackspace: true, // Default value,
-            typeSpeed: 30,
-            // time before typing starts
-            startDelay: 1200,
-            // backspacing speed
-            backSpeed: 20,
-            // time before backspacing
-            backDelay: 500,
-            // loop
-            loop: true,
-            // false = infinite
-            loopCount: 5,
-            // show cursor
-            showCursor: false,
-            // character for cursor
-            cursorChar: "|",
-            // attribute to type (null == text)
-            attr: null,
-        });
-        // pre-loader
-        var $body = document.body,
-            $wrap = document.getElementById('wrap'),
+    <!-- ─────────────────────────────── 03 Capabilities ─────────────────────────────── -->
+    <section class="section caps" id="capabilities" aria-labelledby="caps-title">
+      <header class="shead">
+        <p class="shead__no mono">(03)</p>
+        <h2 class="shead__title" id="caps-title" data-split>Capabilities</h2>
+        <p class="shead__aside mono">Tools I reach for</p>
+      </header>
 
-            areawidth = window.innerWidth,
-            areaheight = window.innerHeight,
+      <div class="caps__grid">
+        <div class="caps__group" data-reveal>
+          <h3 class="caps__label mono">Languages <span>05</span></h3>
+          <ul><li>TypeScript</li><li>JavaScript</li><li>Python</li><li>Java</li><li>C++</li></ul>
+        </div>
+        <div class="caps__group" data-reveal>
+          <h3 class="caps__label mono">Product <span>05</span></h3>
+          <ul><li>React</li><li>Node.js</li><li>REST APIs</li><li>ASP.NET Web API</li><li>Client–server design</li></ul>
+        </div>
+        <div class="caps__group" data-reveal>
+          <h3 class="caps__label mono">AI / ML <span>05</span></h3>
+          <ul><li>PyTorch</li><li>scikit-learn</li><li>BERT &amp; NLP</li><li>MNE · OpenBCI</li><li>Model training</li></ul>
+        </div>
+        <div class="caps__group" data-reveal>
+          <h3 class="caps__label mono">Infrastructure <span>05</span></h3>
+          <ul><li>Docker</li><li>k3s / Kubernetes</li><li>Microsoft Azure</li><li>AWS · GCP</li><li>DevOps practices</li></ul>
+        </div>
+        <div class="caps__group" data-reveal>
+          <h3 class="caps__label mono">Data &amp; practice <span>05</span></h3>
+          <ul><li>MongoDB</li><li>Database administration</li><li>NumPy</li><li>Software testing</li><li>Agile delivery</li></ul>
+        </div>
+      </div>
+    </section>
 
-            canvassize = 650,
+    <!-- ─────────────────────────────── 04 About ─────────────────────────────── -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <header class="shead">
+        <p class="shead__no mono">(04)</p>
+        <h2 class="shead__title" id="about-title" data-split>About</h2>
+        <p class="shead__aside mono">Sheffield, UK</p>
+      </header>
 
-            length = 30,
-            radius = 5.6,
+      <div class="about__body">
+        <p class="about__narrative" data-split>I’m a software engineer in Sheffield who enjoys the unglamorous systems real operations run on. My path is a little unusual — an <em>MSc in AI</em>, research turning <em>brain signals into fatigue predictions</em>, and time in professional kitchens, which is still the best training I know for staying calm when production is <em>on fire</em>.</p>
 
-            rotatevalue = 0.035,
-            acceleration = 0,
-            animatestep = 0,
-            toend = false,
+        <div class="about__cols">
+          <div class="about__col" data-reveal>
+            <h3 class="about__label mono">Education</h3>
+            <ul class="about__list">
+              <li>
+                <p class="about__item">MSc Artificial Intelligence &amp; Adaptive Systems</p>
+                <p class="about__sub mono">University of Sussex · 2023 – 24</p>
+                <p class="about__note">Specialist focus: LLM prompt recovery</p>
+              </li>
+              <li>
+                <p class="about__item">Bachelor of Computer Applications</p>
+                <p class="about__sub mono">St. Joseph’s University, Bangalore · 2019 – 22</p>
+                <p class="about__note">Student council; built full-stack websites for college departments</p>
+              </li>
+            </ul>
+          </div>
+          <div class="about__col" data-reveal>
+            <h3 class="about__label mono">Honours</h3>
+            <ul class="about__list">
+              <li>
+                <p class="about__item">Best Team Launch</p>
+                <p class="about__sub mono">Loyalytics.AI</p>
+              </li>
+              <li>
+                <p class="about__item">Recognition award, Neerathon platform</p>
+                <p class="about__sub mono">St. Joseph’s University</p>
+              </li>
+              <li>
+                <p class="about__item">Player’s Player &amp; Employee of the Quarter</p>
+                <p class="about__sub mono">Miller &amp; Carter</p>
+              </li>
+            </ul>
+          </div>
+          <div class="about__col" data-reveal>
+            <h3 class="about__label mono">Elsewhere</h3>
+            <ul class="about__links">
+              <li><a href="https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a></li>
+              <li><a href="https://github.com/AaronRoyan" target="_blank" rel="noopener">GitHub <span aria-hidden="true">↗</span></a></li>
+              <li><a href="docs/Aaron-Royan-CV.pdf" target="_blank" rel="noopener">CV, PDF <span aria-hidden="true">↗</span></a></li>
+              <li><a href="mailto:aaron.dom.royan@gmail.com">Email <span aria-hidden="true">↗</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            pi2 = Math.PI * 2,
+    <!-- ─────────────────────────────── 05 Archive ─────────────────────────────── -->
+    <section class="section archive" id="archive" aria-labelledby="archive-title">
+      <header class="shead">
+        <p class="shead__no mono">(05)</p>
+        <h2 class="shead__title" id="archive-title" data-split>Archive</h2>
+        <p class="shead__aside mono">Earlier work<br>from university</p>
+      </header>
 
-            group = new THREE.Group(),
-            mesh, ringcover, ring,
+      <ol class="archive__list">
+        <li class="archive__row" data-reveal>
+          <span class="archive__year mono">2022</span>
+          <span class="archive__name">Neerathon</span>
+          <span class="archive__desc">Official registration website for St. Joseph’s annual Neerathon marathon, built with my team. Won a recognition award.</span>
+          <span class="archive__links mono"><a href="https://neerathon.vercel.app/" target="_blank" rel="noopener">Live ↗</a><a href="https://github.com/AaronRoyan/Neerathon" target="_blank" rel="noopener">Code ↗</a></span>
+        </li>
+        <li class="archive__row" data-reveal>
+          <span class="archive__year mono">2022</span>
+          <span class="archive__name">Beer Library</span>
+          <span class="archive__desc">Nuxt web app for searching and filtering beers through the Punk API.</span>
+          <span class="archive__links mono"><a href="https://github.com/AaronRoyan/BeerLibraryApi" target="_blank" rel="noopener">Code ↗</a></span>
+        </li>
+        <li class="archive__row" data-reveal>
+          <span class="archive__year mono">2022</span>
+          <span class="archive__name">Mars Invaders</span>
+          <span class="archive__desc">Arcade shooter written in Python with pygame, inspired by Space Invaders.</span>
+          <span class="archive__links mono"><a href="https://github.com/AaronRoyan/Mars-Invaders" target="_blank" rel="noopener">Code ↗</a></span>
+        </li>
+        <li class="archive__row" data-reveal>
+          <span class="archive__year mono">2022</span>
+          <span class="archive__name">Alexa</span>
+          <span class="archive__desc">A minimal voice assistant in about sixty lines of Python.</span>
+          <span class="archive__links mono"><a href="https://github.com/AaronRoyan/Alexa" target="_blank" rel="noopener">Code ↗</a></span>
+        </li>
+      </ol>
+    </section>
+  </main>
 
-            camera, scene, renderer;
+  <!-- ─────────────────────────────── 06 Contact ─────────────────────────────── -->
+  <footer class="end" id="contact" data-theme="light">
+    <div class="contact">
+      <header class="shead shead--plain">
+        <p class="shead__no mono">(06)</p>
+        <p class="shead__aside mono">Contact</p>
+      </header>
+      <h2 class="contact__title" data-split>Let’s build something <em>useful.</em></h2>
+      <div class="contact__grid">
+        <p class="contact__intro" data-reveal>Open to conversations about software and AI engineering roles. The quickest way to reach me is email.</p>
+        <div class="contact__actions" data-reveal>
+          <a class="contact__email" href="mailto:aaron.dom.royan@gmail.com">aaron.dom.royan@gmail.com</a>
+          <button class="contact__copy mono" type="button" data-copy="aaron.dom.royan@gmail.com"><span data-copy-label>Copy email</span></button>
+          <span class="sr-only" aria-live="polite" data-copy-status></span>
+        </div>
+        <ul class="contact__links mono" data-reveal>
+          <li><a href="https://www.linkedin.com/in/aaron-dominic-royan-855a251b1/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a href="https://github.com/AaronRoyan" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a href="docs/Aaron-Royan-CV.pdf" target="_blank" rel="noopener">CV, PDF ↗</a></li>
+        </ul>
+      </div>
+    </div>
 
-
-        camera = new THREE.PerspectiveCamera(65, 1, 1, 10000);
-        camera.position.z = 150;
-
-        scene = new THREE.Scene();
-        // scene.add(new THREE.AxisHelper(30));
-        scene.add(group);
-
-        mesh = new THREE.Mesh(
-            new THREE.TubeGeometry(new(THREE.Curve.create(function() {},
-                function(percent) {
-
-                    var x = length * Math.sin(pi2 * percent),
-                        y = radius * Math.cos(pi2 * 3 * percent),
-                        z, t;
-
-                    t = percent % 0.25 / 0.25;
-                    t = percent % 0.25 - (2 * (1 - t) * t * -0.0185 + t * t * 0.25);
-                    if (Math.floor(percent / 0.25) == 0 || Math.floor(percent / 0.25) == 2) {
-                        t *= -1;
-                    }
-                    z = radius * Math.sin(pi2 * 2 * (percent - t));
-
-                    return new THREE.Vector3(x, y, z);
-
-                }
-            ))(), 200, 1.1, 2, true),
-            new THREE.MeshBasicMaterial({
-                color: 0x720126
-                    // , wireframe: true
-            })
-        );
-        group.add(mesh);
-
-        ringcover = new THREE.Mesh(new THREE.PlaneGeometry(50, 15, 1), new THREE.MeshBasicMaterial({
-            color: 0xffffff,
-            opacity: 0,
-            transparent: true
-        }));
-        ringcover.position.x = length + 1;
-        ringcover.rotation.y = Math.PI / 2;
-        group.add(ringcover);
-
-        ring = new THREE.Mesh(new THREE.RingGeometry(4.3, 5.55, 32), new THREE.MeshBasicMaterial({
-            color: 0x720126,
-            opacity: 0,
-            transparent: true
-        }));
-        ring.position.x = length + 1.1;
-        ring.rotation.y = Math.PI / 2;
-        group.add(ring);
-
-        // fake shadow
-        (function() {
-            var plain, i;
-            for (i = 0; i < 10; i++) {
-                plain = new THREE.Mesh(new THREE.PlaneGeometry(length * 2 + 1, radius * 3, 1), new THREE.MeshBasicMaterial({
-                    color: 0xffffff,
-                    transparent: true,
-                    opacity: 0.13
-                }));
-                plain.position.z = -2.5 + i * 0.5;
-                group.add(plain);
-            }
-        })();
-
-        renderer = new THREE.WebGLRenderer({
-            antialias: true
-        });
-        renderer.setPixelRatio(window.devicePixelRatio);
-        renderer.setSize(canvassize, canvassize);
-        renderer.setClearColor('#ffffff');
-
-        $wrap.appendChild(renderer.domElement);
-
-        $body.addEventListener('mousedown', start, false);
-        $body.addEventListener('touchstart', start, false);
-        $body.addEventListener('mouseup', back, false);
-        $body.addEventListener('touchend', back, false);
-
-        animate();
-
-
-        function start() {
-            toend = true;
-        }
-
-        function back() {
-            toend = false;
-        }
-
-        function tilt(percent) {
-            group.rotation.y = percent * 0.5;
-        }
-
-        function render() {
-
-            var progress;
-
-            animatestep = Math.max(0, Math.min(240, toend ? animatestep + 1 : animatestep - 4));
-            acceleration = easing(animatestep, 0, 1, 240);
-
-            if (acceleration > 0.35) {
-                progress = (acceleration - 0.35) / 0.65;
-                group.rotation.y = -Math.PI / 2 * progress;
-                group.position.z = 50 * progress;
-                progress = Math.max(0, (acceleration - 0.97) / 0.03);
-                mesh.material.opacity = 1 - progress;
-                ringcover.material.opacity = ring.material.opacity = progress;
-                ring.scale.x = ring.scale.y = 0.9 + 0.1 * progress;
-            }
-
-            renderer.render(scene, camera);
-
-        }
-
-        function animate() {
-            mesh.rotation.x += rotatevalue + acceleration;
-            render();
-            requestAnimationFrame(animate);
-        }
-
-        function easing(t, b, c, d) {
-            if ((t /= d / 2) < 1) return c / 2 * t * t + b;
-            return c / 2 * ((t -= 2) * t * t + 2) + b;
-        }
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.1/typed.min.js" integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="node_modules/gsap/dist/gsap.min.js"></script>
-    <script src="node_modules/gsap/ScrollTrigger.js"></script>
-    <script src="node_modules/gsap/dist/ScrollTrigger.min.js"></script>
-
+    <div class="colophon mono">
+      <p>© <span data-year>2026</span> Aaron Royan</p>
+      <p>Sheffield, UK — <time data-clock>--:--</time></p>
+      <p class="colophon__built">Plain HTML, CSS &amp; JS · GSAP · Lenis · Instrument Serif &amp; Geist</p>
+      <a href="#top" class="colophon__top">Back to top ↑</a>
+    </div>
+  </footer>
 </body>
-
 </html>
